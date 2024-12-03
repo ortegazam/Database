@@ -27,10 +27,11 @@ namespace CharacterCreation
                 Console.WriteLine("(4) Credits");
                 Console.WriteLine("(5) Exit");
 
-                int choice = int.Parse(Console.ReadLine());
+                
 
                 try
                 {
+                    int choice = int.Parse(Console.ReadLine());
                     switch (choice)
                     {
                         case 1:

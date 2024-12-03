@@ -58,7 +58,21 @@ namespace CharacterCreation
                 Console.WriteLine("(1) YES");
                 Console.WriteLine("(2) NO");
 
-                string choiceOne = Console.ReadLine();
+                int choiceOne = Convert.ToInt32(Console.ReadLine());
+
+                switch (choiceOne) {
+                    case 1:
+                        Console.WriteLine("");
+                        break;
+                    case 2:
+                        Console.WriteLine("Press any key to confirm exit: ");
+                        Console.ReadKey();
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input. Try again!");
+                        return;
+                }
             }
 
 

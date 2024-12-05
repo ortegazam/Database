@@ -53,18 +53,15 @@ namespace CharacterCreation
                             Environment.Exit(0);
                             break;
                         default:
-                            throw new Exceptions.InvalidException("GG sayo, par. Mali input mo.\n");
+                            throw new Exception("GG sayo, par. Mali input mo.\n");
 
                     }
                 }
-                catch (Exceptions.InvalidException ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine("Error: " + ex.Message);
                 }
-                catch (FormatException ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
+
             }
         }
     }

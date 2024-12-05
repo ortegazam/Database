@@ -80,7 +80,7 @@ namespace CharacterCreation
         }
         public void Credits()
         {
-            Console.WriteLine("Zam Ortega: Leader, programmer");
+            Console.WriteLine("Zam Ortega: Leader, programmer, pabuhat");
             Console.WriteLine("Jomar Cruz: Documentation");
             Console.WriteLine("Ethan Raphael Concepcion: Documentation");
 

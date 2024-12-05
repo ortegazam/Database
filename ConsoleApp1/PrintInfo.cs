@@ -1,6 +1,6 @@
 ﻿namespace CharacterCreation
 {
-    public class Features
+    public class features
     {
         public string playerName { get; set; }
         public int playerAge { get; set; }
@@ -38,7 +38,7 @@
         public bool boost { get; set; }
 
 
-        public Features(string name, string gender, int age, int stats, string armor,
+        public features(string name, string gender, int age, int stats, string armor,
             string anklet, string team, string hunter, string survivor, string weapon, string ability, bool boost,
             int health, int speed, int energy, int stamina, string attitude, string lace,
             string bracelet, string pants, string top, string glasses, int strength,
@@ -77,10 +77,18 @@
             this.speed = speed;
             this.energy = energy;
             this.boost = boost;
+
+           
         }
 
-        public Features()
+        public features()
         {
         }
     }
 }
+        
+    
+
+
+
+ 

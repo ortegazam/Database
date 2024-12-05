@@ -11,6 +11,8 @@ namespace CharacterCreation
         public static void Main(string[] args)
         {
             MainMenu();
+
+            
         }
         public static void MainMenu() {
             CharacterSheetMethod characInfo = new CharacterSheetMethod();
@@ -26,8 +28,6 @@ namespace CharacterCreation
                 Console.WriteLine("(3) Campaign Mode");
                 Console.WriteLine("(4) Credits");
                 Console.WriteLine("(5) Exit");
-
-                
 
                 try
                 {
@@ -64,6 +64,7 @@ namespace CharacterCreation
 
             }
         }
+
     }
 }
         

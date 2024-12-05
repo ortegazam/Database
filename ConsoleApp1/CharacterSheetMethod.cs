@@ -1,26 +1,29 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 
 namespace CharacterCreation
 {
+
     public class CharacterSheetMethod
     {
-        
-     Features ft = new Features();
+
+        CharacSheet cs = new CharacSheet();
+        features ft = new features();
 
         public void PlayerName()
         {
             bool placeholder = false;
-            
+
             while (!placeholder)
-            {               
+            {
                 {
                     try
                     {
                         Console.WriteLine("Please enter your name: ");
                         Console.WriteLine("Alphanumeric characters only. Your name is limited to 20 characters only. ");
- 
-                       ft.playerName = Console.ReadLine();
+
+                        ft.playerName = Console.ReadLine();
 
                         if (Regex.IsMatch(ft.playerName, @"^[A-Za-z0-9]+$") && ft.playerName.Length <= 20 && ft.playerName.Length >= 1)
                         {
@@ -33,20 +36,20 @@ namespace CharacterCreation
                         {
                             throw new Exception("Hala ka!");
                         }
-                        }
-                        catch (FormatException ex)
-                        {
-                            Console.WriteLine("Error: " + ex.Message);
-                        }
-                 
+                    }
+                    catch (FormatException ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                    }
+
                     catch (Exception ex)
                     {
                         Console.WriteLine("Error: " + ex.Message);
                     }
                 }
             }
-        }        
-        
+        }
+
         public void Age()
         {
             try
@@ -60,7 +63,7 @@ namespace CharacterCreation
 
                 ft.playerAge = Convert.ToInt32(Console.ReadLine());
 
-                if (ft.playerAge < 0  && ft.playerAge > 5)
+                if (ft.playerAge < 0 && ft.playerAge > 5)
                 {
                     throw new Exception("Josko, par. Wala sa options 'yan e.");
                 }
@@ -68,11 +71,12 @@ namespace CharacterCreation
                 {
                     Gender();
                 }
-                }
-            catch (Exception ex) { 
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine("Error: " + ex.Message);
             }
-            }
+        }
         public void Gender()
         {
             bool placeholder = false;
@@ -83,15 +87,15 @@ namespace CharacterCreation
                 {
                     string[] genderOptions = { "Agender", "Cisgender", "Nonbinary", "Gender Neutral", "Pangender", "Androgyne", "Transgender", "Bigender", "Others" };
                     Console.WriteLine("\nPlease choose the gender you identified with: \n");
-                    Console.WriteLine("[A] \tAgender");
-                    Console.WriteLine("[B] \tCisgender");
-                    Console.WriteLine("[C] \tNonbinary");
-                    Console.WriteLine("[D] \tGender Neutral");
-                    Console.WriteLine("[E] \tPangender");
-                    Console.WriteLine("[F] \tAndrogyne");
-                    Console.WriteLine("[G] \tTransgender");
-                    Console.WriteLine("[H] \tBigender");
-                    Console.WriteLine("[I] \tOthers");
+                    Console.WriteLine($"{[A] }Agender");
+                    Console.WriteLine($"{"[B]", -5}Cisgender");
+                    Console.WriteLine($"{"[C]", -5}Nonbinary");
+                    Console.WriteLine($"{"[D]", -5}Gender Neutral");
+                    Console.WriteLine($"{"[E]", -5}Pangender");
+                    Console.WriteLine($"{"[F]", -5}Androgyne");
+                    Console.WriteLine($"{"[G]", -5}Transgender");
+                    Console.WriteLine($"{"[H]", -5}Bigender");
+                    Console.WriteLine($"{"[I]", -5}Others");
                     Console.Write("Gender: ");
 
                     ft.playerGender = Console.ReadLine().ToUpper();
@@ -135,7 +139,8 @@ namespace CharacterCreation
                             placeholder = true;
                             break;
                         default:
-                            throw new ArgumentException("Invalid input. Try again!");                    }
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
                 }
                 catch (ArgumentException ex)
                 {
@@ -152,9 +157,9 @@ namespace CharacterCreation
                 string[] choices = { "Hunter", "Survivor" };
                 try
                 {
-                    Console.WriteLine("[A] Hunters/Ghosts: Hunters are known for eating their prey, " +
+                    Console.WriteLine($"{"[A]", -5}Hunter: Hunters are known for eating their prey, " +
                         "claws gritting against their prey’s skin.");
-                    Console.WriteLine("[B] Survivor/Detective: You will search for clues regarding the mysterious " +
+                    Console.WriteLine($"{"[B]", -5} Survivor: You will search for clues regarding the mysterious " +
                         "accident that led you here, undiscovered by the enemy.");
                     Console.WriteLine($"Please choose your team type, {ft.playerName}.\n");
 
@@ -162,12 +167,10 @@ namespace CharacterCreation
 
                     switch (choice)
                     {
-                        case 'A':                           
+                        case 'A':
                             ft.teamType = "Team Type: Hunter";
                             HunterSkills();
-
                             placeholder = true;
-
                             break;
 
                         case 'B':
@@ -193,44 +196,39 @@ namespace CharacterCreation
         }
         public void HunterSkills()
         {
-            try
+            bool ph = false;
+
+            while (!ph)
             {
-                string[] skillChoices = { "Doppelganger", "Poltergeist", "Trickster", "Phantom", "Assassin" };
-
-                Console.WriteLine("\nPlease choose your skill:");
-                Console.WriteLine($"\nDoppelganger: You can pretend as one of the survivors whom you killed before within a brief period.");
-                Console.WriteLine($"Poltergeist: You can be invisible for a brief period. Your steps will still be heard by the survivors.");
-                Console.WriteLine($"Trickster: You can trick the survivors that you are dead.");
-                Console.WriteLine($"Phantom: Your steps will not be heard by the survivors in a limited time. ");
-                Console.WriteLine($"Assassin: Once you spot a survivor, you can kill them despite out of range. ");
-
-                ft.hunterSkill = Console.ReadLine();
-
-                switch (ft.hunterSkill.ToUpper())
+                try
                 {
-                    case "DOPPELGANGER":
-                        Weapon();
-                        break;
-                    case "POLTERGEIST":
-                        Weapon();
-                        break;
-                    case "TRICKSTER":
-                        Weapon();
-                        break;
-                    case "PHANTOM":
-                        Weapon();
-                        break;
-                    case "ASSASSIN":
-                        Weapon();
-                        break;
-                    default:
-                        throw new ArgumentException("Skill is not in the choices. Try again!");
-                }      
-            }
+                    string[] skillChoices = { "Doppelganger", "Poltergeist", "Trickster", "Phantom", "Assassin" };
 
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
+                    Console.WriteLine("\nPlease choose your skill:");
+                    Console.WriteLine($"\n{"Doppelganger:", -5}You can pretend as one of the survivors whom you killed before within a brief period.");
+                    Console.WriteLine($"{"Poltergeist:",-5} You can be invisible for a brief period. Your steps will still be heard by the survivors.");
+                    Console.WriteLine($"{"Trickster:", -5} You can trick the survivors that you are dead.");
+                    Console.WriteLine($"{"Phantom:", -5} Your steps will not be heard by the survivors in a limited time. ");
+                    Console.WriteLine($"{"Assassin:", -5} Once you spot a survivor, you can kill them despite out of range. ");
+
+                    ft.hunterSkill = Console.ReadLine();
+
+                    if (Array.Exists(skillChoices, skillChoices => skillChoices.Equals(skillChoices, StringComparison.OrdinalIgnoreCase)))
+                    {
+                        Weapon();
+                        ph = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input! Try again.");
+                    }
+
+                }
+
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
             }
         }
         public void SurvivorSkills()
@@ -287,138 +285,162 @@ namespace CharacterCreation
             ft.energy = 10;
             ft.stats = 5;
 
-            Console.WriteLine("\nPlease choose where you want to put your (5) free stat points:");
-
             while (ft.stats > 0)
             {
-                Console.WriteLine("1. Health, +15 HP permanently.");
-                Console.WriteLine("2. Strength, +5 XP permanently.");
-                Console.WriteLine("3. Stamina, +4 XP permanently.");
-                Console.WriteLine("4. Speed, +2 XP permanently.");
-                Console.WriteLine("5. Energy, +2 XP permanently.");
+                Console.WriteLine("\nPlease choose where you want to put your (5) free stat points:");
 
-                Console.Write("\nWhat stat do you wish to increase?");
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.WriteLine("1. Health, +15 HP permanently.");
+                    Console.WriteLine("2. Strength, +5 XP permanently.");
+                    Console.WriteLine("3. Stamina, +4 XP permanently.");
+                    Console.WriteLine("4. Speed, +2 XP permanently.");
+                    Console.WriteLine("5. Energy, +2 XP permanently.");
 
-                int choice = Convert.ToInt32(Console.ReadLine());
-                        switch (choice)
-                        {
-                            case 1:
-                                ft.health += 15;
-                                Console.WriteLine("You added 15 points to HEALTH.");
+                    Console.Write("\nWhat stat do you wish to increase?");
 
-                                break;
-                            case 2:
-                                ft.strength += 5;
-                                Console.WriteLine("You added 5 points to STRENGTH.");
+                    int choice = Convert.ToInt32(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            ft.health += 15;
+                            Console.WriteLine("You added 15 points to HEALTH.");
 
-                                break;
-                            case 3:
-                                ft.stamina += 4;
-                                Console.WriteLine("You added 4 points to STAMINA.");
 
-                                break;
-                            case 4:
-                                ft.speed += 2;
-                                Console.WriteLine("You added 2 points to SPEED.");
-
-                                break;
-                            case 5:
-                                ft.energy += 2;
-                                Console.WriteLine("You added 2 points to ENERGY.");
-                                break;
-                            default:
-                                throw new Exception("Invalid input!");                    
+                            break;
+                        case 2:
+                            ft.strength += 5;
+                            Console.WriteLine("You added 5 points to STRENGTH.");
+                            ft.stats++;
+                            break;
+                        case 3:
+                            ft.stamina += 4;
+                            Console.WriteLine("You added 4 points to STAMINA.");
+                            ft.stats++;
+                            break;
+                        case 4:
+                            ft.speed += 2;
+                            Console.WriteLine("You added 2 points to SPEED.");
+                            ft.stats++;
+                            break;
+                        case 5:
+                            ft.energy += 2;
+                            Console.WriteLine("You added 2 points to ENERGY.");
+                            ft.stats++;
+                            break;
+                        default:
+                            throw new Exception("Invalid input!");
                     }
+                    ft.stats++;
+                }
+                PhysicalTraits();
             }
-            PhysicalTraits();
         }
         public void PhysicalTraits()
         {
-            string[] hairStyleChoices = { "Clean Cut", "Buzz Cut", "Fade Cut", "Wolf Cut" };
-            string[] hairColorChoices = { "Red", "Black", "Brown", "Orange", "Blonde" };
-            string[] skinColorChoices = { "Brown", "Black", "White", "Yellow", "Porcelain" };
-            string[] eyeColorChoices = { "Brown", "Black", "Red", "Blue", "Green" };
-            string[] scarChoices = { "Eye scar", "Leg scar", "Arm scar", "Chest scar", "Shoulder scar" };
-            string[] faceShapeChoices = { "Triangular", "Oval", "Circle", "Square", "Diamond" };
-            string[] faceExpressionChoices = { "Angry", "Sad", "Smile", "Calm", "Confused" };
-            string[] heightChoices = { "Short", "Average", "Tall", "Dwarf", "Giant" };
-            string[] weightChoices = { "Skinny", "Slim", "Fit", "Plump", "Fat" };
+            bool ph = false;
+            while (ph)
+            {
+                try
+                {
+                    string[] hairStyleChoices = { "Clean Cut", "Buzz Cut", "Fade Cut", "Wolf Cut" };
+                    string[] hairColorChoices = { "Red", "Black", "Brown", "Orange", "Blonde" };
+                    string[] skinColorChoices = { "Brown", "Black", "White", "Yellow", "Porcelain" };
+                    string[] eyeColorChoices = { "Brown", "Black", "Red", "Blue", "Green" };
+                    string[] scarChoices = { "Eye scar", "Leg scar", "Arm scar", "Chest scar", "Shoulder scar" };
+                    string[] faceShapeChoices = { "Triangular", "Oval", "Circle", "Square", "Diamond" };
+                    string[] faceExpressionChoices = { "Angry", "Sad", "Smile", "Calm", "Confused" };
+                    string[] heightChoices = { "Short", "Average", "Tall", "Dwarf", "Giant" };
+                    string[] weightChoices = { "Skinny", "Slim", "Fit", "Plump", "Fat" };
 
-            Console.WriteLine("\nPlease choose your hairstyle:\n");          
-            Console.WriteLine("Clean Cut");
-            Console.WriteLine("Buzz Cut");
-            Console.WriteLine("Fade Cut");
-            Console.WriteLine("Wolf Cut");
-            Console.WriteLine("Long Hair");
+                    
 
-            ft.hairStyle = Console.ReadLine();
-
-            Console.WriteLine("\nPlease choose your hair color:\n");
-            Console.WriteLine("Red");
-            Console.WriteLine("Black");
-            Console.WriteLine("Brown");
-            Console.WriteLine("Orange");
-            Console.WriteLine("Blonde");
-
-            ft.hairColor = Console.ReadLine();
+                    
 
 
-            Console.WriteLine("\nPlease choose your skin color:");
-            Console.WriteLine("Brown");
-            Console.WriteLine("Black");
-            Console.WriteLine("White");
-            Console.WriteLine("Yellow");
-            Console.WriteLine("Porcelain");
+                        Console.WriteLine("\nPlease choose your hairstyle:\n");
+                        Console.WriteLine("Clean Cut");
+                        Console.WriteLine("Buzz Cut");
+                        Console.WriteLine("Fade Cut");
+                        Console.WriteLine("Wolf Cut");
+                        Console.WriteLine("Long Hair");
 
-            ft.skinColor = Console.ReadLine();
-            
-            Console.WriteLine("\nPlease choose your eye color:");
-            Console.WriteLine("Brown");
-            Console.WriteLine("Black");
-            Console.WriteLine("Red");
-            Console.WriteLine("Blue");
-            Console.WriteLine("Green");
+                        ft.hairStyle = Console.ReadLine();
 
-            ft.eyeColor = Console.ReadLine();
-            
-            Console.WriteLine("\nPlease choose your scar:\n");
-            Console.WriteLine("Eye Scar");
-            Console.WriteLine("Leg Scar");
-            Console.WriteLine("Arm Scar");
-            Console.WriteLine("Chest Scar");
-            Console.WriteLine("Shoulder Scar");
 
-            ft.scar = Console.ReadLine();
-            
+                        Console.WriteLine("\nPlease choose your hair color:\n");
+                        Console.WriteLine("Red");
+                        Console.WriteLine("Black");
+                        Console.WriteLine("Brown");
+                        Console.WriteLine("Orange");
+                        Console.WriteLine("Blonde");
 
-            Console.WriteLine("\nPlease choose your face shape:\n");
-            Console.WriteLine("Triangular");
-            Console.WriteLine("Oval");
-            Console.WriteLine("Circle");
-            Console.WriteLine("Square");
-            Console.WriteLine("Diamond");
+                        ft.hairColor = Console.ReadLine();
 
-            ft.faceShape = Console.ReadLine();
-        
 
-            Console.WriteLine("\nPlease choose your expression:\n");
-            Console.WriteLine("Angry, Sad, Smile, Calm, Confused");
-            ft.faceExpression = Console.ReadLine();
-            
+                        Console.WriteLine("\nPlease choose your skin color:");
+                        Console.WriteLine("Brown");
+                        Console.WriteLine("Black");
+                        Console.WriteLine("White");
+                        Console.WriteLine("Yellow");
+                        Console.WriteLine("Porcelain");
 
-            Console.WriteLine("\nPlease choose your height:\n");
-            Console.WriteLine("Short, Average, Tall, Dwarf, Giant");
-            ft.height = Console.ReadLine();
-            
+                        ft.skinColor = Console.ReadLine();
 
-            Console.WriteLine("\nPlease choose your weight:\n");
-            Console.WriteLine("Skinny, Slim, Fit, Plum, Fat");
-            ft.weight = Console.ReadLine();
-            
+                        Console.WriteLine("\nPlease choose your eye color:");
+                        Console.WriteLine("Brown");
+                        Console.WriteLine("Black");
+                        Console.WriteLine("Red");
+                        Console.WriteLine("Blue");
+                        Console.WriteLine("Green");
 
-            Clothing();
+                        ft.eyeColor = Console.ReadLine();
+
+                        Console.WriteLine("\nPlease choose your scar:\n");
+                        Console.WriteLine("Eye Scar");
+                        Console.WriteLine("Leg Scar");
+                        Console.WriteLine("Arm Scar");
+                        Console.WriteLine("Chest Scar");
+                        Console.WriteLine("Shoulder Scar");
+
+                        ft.scar = Console.ReadLine();
+
+
+                        Console.WriteLine("\nPlease choose your face shape:\n");
+                        Console.WriteLine("Triangular");
+                        Console.WriteLine("Oval");
+                        Console.WriteLine("Circle");
+                        Console.WriteLine("Square");
+                        Console.WriteLine("Diamond");
+
+                        ft.faceShape = Console.ReadLine();
+
+
+                        Console.WriteLine("\nPlease choose your expression:\n");
+                        Console.WriteLine("Angry, Sad, Smile, Calm, Confused");
+                        ft.faceExpression = Console.ReadLine();
+
+
+                        Console.WriteLine("\nPlease choose your height:\n");
+                        Console.WriteLine("Short, Average, Tall, Dwarf, Giant");
+                        ft.height = Console.ReadLine();
+
+
+                        Console.WriteLine("\nPlease choose your weight:\n");
+                        Console.WriteLine("Skinny, Slim, Fit, Plum, Fat");
+                        ft.weight = Console.ReadLine();
+
+                        Clothing();
+
+                    }
+                    }
+                catch (ArgumentException ex) {
+                    Console.WriteLine(ex.Message);
+                }
+                }
+            }
+
         }
-    
         public void Clothing()
         {
             string[] top = { "Shirt", "Jacket", "Long Sleeves", "Dress", "Shoulder split", "Hoodie" };
@@ -431,182 +453,7 @@ namespace CharacterCreation
             Console.WriteLine($"Pants:\n{string.Join("\n ", pants)}");
             ft.playerPants = Console.ReadLine();
 
-            Accessories();
-            
+            cs.Accessories();
         }
-        public void Accessories()
-        {
-            string[] hats = { "Baseball Cap", "Cowboy Hat", "Beret", "Bucket Hat", "Fedora", "None" };
-            string[] playerGlasses = { "Square Eyeglasses", "Round Eyeglasses", "Oval Eyeglasses", "Rectangle Eyeglasses", "Sunglasses", "None" };
-            string[] necklaces = { "Gold", "Silver", "Chain", "Diamond", "Pearl", "None"};
-            string[] bracelets = { "Gold", "Silver", "Chain", "Diamond", "Pearl", "None" };
-            string[] anklets = { "Charm Anklet", "Gold Anklet", "Beaded Anklet", "Chain Anklet", "Silver Anklet", "None"};
-
-            Console.WriteLine("\nPlease choose your accessories:\n");
-            Console.WriteLine($"Hat: \n{string.Join("\n", hats)}");
-            ft.hat = Console.ReadLine();
-
-            Console.WriteLine($"Glasses:\n{string.Join("\n", playerGlasses)}");
-            ft.glasses = Console.ReadLine();
-            
-            Console.WriteLine($"Necklace:\n{string.Join("\n", necklaces)}");
-            ft.necklace = Console.ReadLine();       
-
-            Console.WriteLine($"Bracelet:\n{string.Join("\n", bracelets)}");
-            ft.bracelet = Console.ReadLine();
-
-            Console.WriteLine($"Anklet:\n{string.Join("\n", anklets)}");
-            ft.anklet = Console.ReadLine();
-
-            Armor();
-        }
-        public void Buffs()
-        {
-            string[] buffs = {"Enhanced Healing", "Increase Attack Speed", "Tough Defense", "Increased Stealth", "Increased Stamina"};
-
-            Console.WriteLine($"Buffs:\n{string.Join("\n ", buffs)}"); ;
-            ft.buff = Console.ReadLine();
-
-            Attitude();
-
-        }
-        public void Armor()
-        {
-            string[] armors = {"Sturdy Armor", "Leather Armor", "Iron Armor", "Chain Armor", "Cloth Armor"};
-            
-            Console.WriteLine("\nPlease choose your armor:\n");
-            Console.WriteLine($"Sturdy Armor: ‘Left by a knight from an unknown era. Does it mean the mansion’s already up by then?’ The hunter will not be able to eat you the first time. Make sure they do not have a second time. ");
-            Console.WriteLine($"Leather Armor: ‘Made from an animal’s skin, the animal’s stench remains.’ The hunter might be able to eat you deliciously once you wear this within their radius. However, they might also think it is one of their emergency foods: the hounds. \r\n");
-            Console.WriteLine($"Iron Armor: A heavy armor which came from a civilian who also came across the mansion. But also died. His soul remains inside the armor. Upon wearing this, you might feel hallucinations or perhaps, clues to the mansion’s secrets. ");
-            Console.WriteLine($"Chain Armor: Because of the heaviness of the armor, the previous owner died because they lost the ability to run. Upon wearing this, your steps will be heavy. But the hunter will believe it is just one of his allies. ");
-            Console.WriteLine($"Cloth Armor: Filled with blood, the previous owner’s wrath against the hunters remained inside the armor. Upon wearing this, you will be able to use blood pact occasionally, but with a health rebound. ");
-
-            ft.armor = Console.ReadLine();
-
-            Buffs();
-        }
-        public void Attitude()
-        {
-            string[] attitudes = {"Wistful", "Enthusiastic", "Calm", "Scared", "Blank" };
-            Console.WriteLine("\nPlease choose your attitude:\n");
-            Console.WriteLine($"\nWistful: Because of the sudden accident, you miss your family and friends. No debuffs or buffs will commence upon selection. ");
-            Console.WriteLine($"Enthusiastic: You consider the accident as fate. An adventure. No debuffs or buffs will commence upon selection.  ");
-            Console.WriteLine($"Calm: You know this is a trial you must overcome to survive in a world much harsher than this. No debuffs or buffs will commence upon selection. ");
-            Console.WriteLine($"Scared: You are not a fan of horror, and you hate gore. No debuffs or buffs will commence upon selection. ");
-            Console.WriteLine($"Blank: You do not care. No debuffs or buffs will commence upon selection. ");
-
-            ft.attitude = Console.ReadLine();
-
-            PrintAll();
-        }
-        public void PrintAll()
-        {
-            Console.WriteLine($"\nCharacter Information:");
-            Console.WriteLine($"Name: {ft.playerName}");
-            Console.WriteLine($"Age: {ft.playerAge}");
-            Console.WriteLine($"Gender: {ft.playerGender}");
-            Console.WriteLine($"{ft.teamType}\n");
-
-            Console.WriteLine($"Clothes: ");
-            Console.WriteLine($"Top: {ft.playerTop}");
-            Console.WriteLine($"Pants: {ft.playerPants}\n");
-
-            Console.WriteLine($"Physical Traits: ");
-            Console.WriteLine($"Face Shape: {ft.faceShape}");
-            Console.WriteLine($"Hair Color: {ft.hairColor}");
-            Console.WriteLine($"Hairstyle: {ft.hairStyle}");
-            Console.WriteLine($"Skin Color: {ft.skinColor}");
-            Console.WriteLine($"Eye Color: {ft.eyeColor}");
-            Console.WriteLine($"Height: {ft.height}");
-            Console.WriteLine($"Weight: {ft.weight}\n");
-
-            Console.WriteLine("Accessories: ");
-            Console.WriteLine($"Hat: {ft.hat}");
-            Console.WriteLine($"Glasses: {ft.glasses}");
-            Console.WriteLine($"Necklace: {ft.necklace}");
-            Console.WriteLine($"Bracelet: {ft.bracelet}");
-            Console.WriteLine($"Anklet: {ft.anklet}\n");
-
-            Console.WriteLine($"Character's Unique Traits: ");
-            Console.WriteLine($"Hunter Skill: {ft.hunterSkill}");
-            Console.WriteLine($"Survivor Skill: {ft.survivorSkill}");
-            Console.WriteLine($"Weapon: {ft.weapon}");
-            Console.WriteLine($"Ability: {ft.ability}");
-            Console.WriteLine($"Buff:{ft.buff}");
-            Console.WriteLine($"Scar: {ft.scar}\n");
-
-            Console.WriteLine("\nCharacter's Stats:");
-            Console.WriteLine($"Health: {ft.health}");
-            Console.WriteLine($"Strength: {ft.strength}");
-            Console.WriteLine($"Stamina: {ft.stamina}");
-            Console.WriteLine($"Speed: {ft.speed}");
-            Console.WriteLine($"Energy: {ft.energy}");
-
-            
-            try
-            {
-                
-                Console.WriteLine("\nGo back to main menu?");
-                Console.WriteLine("(1) YES");
-                Console.WriteLine("(2) NO");
-
-                int choice = Convert.ToInt32(Console.ReadLine());
-
-
-                switch (choice)
-                {
-                    case 1:
-                        Menu.MainMenu();
-                        break;
-                    case 2:
-                        PrintAll();
-                        break;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
-            
-        }
-        public void Save()
-        {
-            try
-            {
-                Console.WriteLine("Save character?");
-                Console.WriteLine("(1) YES");
-                Console.WriteLine("(2) NO");
-
-                int choice = Convert.ToInt32(Console.ReadLine());
-
-                switch (choice)
-                {
-                    case 1:
-                        Menu.MainMenu();
-                        break;
-                    case 2:
-
-                        break;
-                    default:
-                        throw new Exception("Invalid input. Try again!");
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
-        }
-        public void Edit()
-        {
-            Console.WriteLine("Which trait do you wish to edit?");
-            Console.WriteLine("[1] Character Information");
-            Console.WriteLine("[2] Character's Unique Traits");
-            Console.WriteLine("[3] Character's Stats");
-            Console.WriteLine("[4] Clothing");
-            Console.WriteLine("[5] Accessories");
-            Console.WriteLine("[6] Physical Traits");
-        }
-    }
+    }       
 }

@@ -10,6 +10,7 @@ namespace CharacterCreation
         public void NewGame()
         {
 
+            Menu menu = new Menu();
             CharacterSheetMethod character = new CharacterSheetMethod();
             
 
@@ -38,8 +39,19 @@ namespace CharacterCreation
         }
         public void CampaignMode()
         {
-            Console.WriteLine("Disoriented and dazed, you wake up to find yourself in a sanguine lobby. The door’s locked shut and you have no way of getting out in your current state. Looking around, it was the famed Redmill Manor, the most haunted building in the city of Nexto. Don’t be happy, as it was said that anyone who set foot in the building was lost forever. The horrors come true as the Hunter roams the building, killing anyone who would try to uncover their secrets which they guarded six-feet-under since. Scramble and look for clues before the Hunter makes you their next victim. Good luck.\r\n");
-            
+            Console.WriteLine("Disoriented and dazed, you wake up to find yourself in a sanguine lobby. " +
+                "The door’s locked shut and you have no way of getting out in your current state. Looking around, " +
+                "it was the famed Redmill Manor, the most haunted building in the city of Nexto.");
+
+            Thread.Sleep(3000);
+
+            Console.WriteLine("\nIt was said that anyone who set foot in the building was lost forever. The horrors come true as " +
+                "the Hunter roams the building, killing anyone who would try to uncover their secrets which they " +
+                "guarded six-feet-under since. Scramble and look for clues before the Hunter makes you their next " +
+                "victim. Good luck.");
+
+            Thread.Sleep(3000);
+
             Console.WriteLine("\nDo you wish to continue?");
 
             Console.WriteLine("Press Y to continue.");
@@ -48,11 +60,6 @@ namespace CharacterCreation
 
             if (choice == "Y")
             {
-                Console.WriteLine("Invalid. Try again");
-                return;
-            }
-            else
-            {
                 Console.WriteLine("Hehe, juk onli.");
                 Console.WriteLine("\nGo back to main menu?");
                 Console.WriteLine("(1) YES");
@@ -60,9 +67,10 @@ namespace CharacterCreation
 
                 int choiceOne = Convert.ToInt32(Console.ReadLine());
 
-                switch (choiceOne) {
+                switch (choiceOne)
+                {
                     case 1:
-                        Console.WriteLine("");
+                        Menu.MainMenu();
                         break;
                     case 2:
                         Console.WriteLine("Press any key to confirm exit: ");
@@ -70,14 +78,11 @@ namespace CharacterCreation
                         Environment.Exit(0);
                         break;
                     default:
-                        Console.WriteLine("Invalid input. Try again!");
-                        return;
+                        throw new ArgumentException("Bruh");
                 }
             }
-
-
-
         }
+     
         public void Credits()
         {
             Console.WriteLine("Zam Ortega: Leader, programmer, pabuhat");
@@ -93,36 +98,3 @@ namespace CharacterCreation
     }
         
 }
-
-
-// bool placeholder = false;
-// while (!placeholder)
-//{
-//    try
-//    {
-//        if (choice < 0 && choice > 2)
-//        {
- //           throw new Exceptions.InvalidException("Invalid!");
-
-       // }
-       // placeholder = true;
-
-       // if (choice == 1)
-       // {
-        //    Console.WriteLine("Welcome! Please state your name. Alphanumeric only, limited to 20 characters only. No special characters are allowed.");
-       // }
-       // if (choice == 2)
-       // {
-
-       // }
-    //}
-
-//    catch (Exceptions.InvalidException ex)
-//    {
-//        Console.WriteLine("Error: " + ex.Message);
-//    }
-//    catch (FormatException ex)
-//    {
-//        Console.WriteLine("Error: " + ex.Message);
-//    }
-// } 

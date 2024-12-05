@@ -56,11 +56,7 @@ namespace CharacterCreation
             try
             {
                 Console.WriteLine("Please enter your age: ");
-                Console.WriteLine($"[1] Child {"",-17} | (7 - 13 years old)");
-                Console.WriteLine($"[2] Teenager {"",-14} | (14 - 20 years old)");
-                Console.WriteLine($"[3] Adult {"",-17} | (21 - 40 years old)");
-                Console.WriteLine($"[4] Middle Age {"",-12} | (41 - 55 years old)");
-                Console.WriteLine($"[5] Old {"",-19} | (56 years old above)");
+                opt.age();
 
                 ft.playerAge = Convert.ToInt32(Console.ReadLine());
 
@@ -86,18 +82,8 @@ namespace CharacterCreation
             {
                 try
                 {
-                    string[] genderOptions = { "Agender", "Cisgender", "Nonbinary", "Gender Neutral", "Pangender", "Androgyne", "Transgender", "Bigender", "Others" };
                     Console.WriteLine("\nPlease choose the gender you identified with: \n");
-                    Console.WriteLine($"{"[A]" }Agender");
-                    Console.WriteLine($"{"[B]", -5}Cisgender");
-                    Console.WriteLine($"{"[C]", -5}Nonbinary");
-                    Console.WriteLine($"{"[D]", -5}Gender Neutral");
-                    Console.WriteLine($"{"[E]", -5}Pangender");
-                    Console.WriteLine($"{"[F]", -5}Androgyne");
-                    Console.WriteLine($"{"[G]", -5}Transgender");
-                    Console.WriteLine($"{"[H]", -5}Bigender");
-                    Console.WriteLine($"{"[I]", -5}Others");
-                    Console.Write("Gender: ");
+                    opt.gender();
 
                     ft.playerGender = Console.ReadLine().ToUpper();
 

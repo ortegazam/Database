@@ -9,6 +9,26 @@ namespace Finals
 {
     public class Options
     {
+        public void age()
+        {
+            Console.WriteLine($"[1] Child {"",-17} | (7 - 13 years old)");
+            Console.WriteLine($"[2] Teenager {"",-14} | (14 - 20 years old)");
+            Console.WriteLine($"[3] Adult {"",-17} | (21 - 40 years old)");
+            Console.WriteLine($"[4] Middle Age {"",-12} | (41 - 55 years old)");
+            Console.WriteLine($"[5] Old {"",-19} | (56 years old above)");
+        }
+        public void gender()
+        {
+            Console.WriteLine($"{"[A]",-5}Agender");
+            Console.WriteLine($"{"[B]",-5}Cisgender");
+            Console.WriteLine($"{"[C]",-5}Nonbinary");
+            Console.WriteLine($"{"[D]",-5}Gender Neutral");
+            Console.WriteLine($"{"[E]",-5}Pangender");
+            Console.WriteLine($"{"[F]",-5}Androgyne");
+            Console.WriteLine($"{"[G]",-5}Transgender");
+            Console.WriteLine($"{"[H]",-5}Bigender");
+            Console.WriteLine($"{"[I]",-5}Others");
+        }
         public void hairStyle()
         {
             Console.WriteLine("Clean Cut");
@@ -108,7 +128,31 @@ namespace Finals
         }
         public void weights()
         {
-            Console.WriteLine("Skinny, Slim, Fit, Plum, Fat");
+            Console.WriteLine("Skinny");
+            Console.WriteLine("Slim");
+            Console.WriteLine("Fit");
+            Console.WriteLine("Plum");
+            Console.WriteLine("Fat");
+
+        }
+        public void armors()
+        {
+            Console.WriteLine($"Sturdy Armor: ‘Left by a knight from an unknown era. Does it mean the mansion’s already up by then?’ The hunter will not be able to eat you the first time. Make sure they do not have a second time. ");
+            Console.WriteLine($"Leather Armor: ‘Made from an animal’s skin, the animal’s stench remains.’ The hunter might be able to eat you deliciously once you wear this within their radius. However, they might also think it is one of their emergency foods: the hounds. \r\n");
+            Console.WriteLine($"Iron Armor: A heavy armor which came from a civilian who also came across the mansion. But also died. His soul remains inside the armor. Upon wearing this, you might feel hallucinations or perhaps, clues to the mansion’s secrets. ");
+            Console.WriteLine($"Chain Armor: Because of the heaviness of the armor, the previous owner died because they lost the ability to run. Upon wearing this, your steps will be heavy. But the hunter will believe it is just one of his allies. ");
+            Console.WriteLine($"Cloth Armor: Filled with blood, the previous owner’s wrath against the hunters remained inside the armor. Upon wearing this, you will be able to use blood pact occasionally, but with a health rebound. ");
+
+        }
+        public void attitudes()
+        {
+            Console.WriteLine("\nPlease choose your attitude:\n");
+            Console.WriteLine($"\nWistful: Because of the sudden accident, you miss your family and friends. No debuffs or buffs will commence upon selection. ");
+            Console.WriteLine($"Enthusiastic: You consider the accident as fate. An adventure. No debuffs or buffs will commence upon selection.  ");
+            Console.WriteLine($"Calm: You know this is a trial you must overcome to survive in a world much harsher than this. No debuffs or buffs will commence upon selection. ");
+            Console.WriteLine($"Scared: You are not a fan of horror, and you hate gore. No debuffs or buffs will commence upon selection. ");
+            Console.WriteLine($"Blank: You do not care. No debuffs or buffs will commence upon selection. ");
+
         }
     }
 }

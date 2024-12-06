@@ -5,12 +5,13 @@ using CharacterCreation;
 
 namespace CharacterCreation
 {
-    public class Methods
+    public class Choices
     {
         public void NewGame()
         {
+
             Menu menu = new Menu();
-            CharacterSheetMethod character = new CharacterSheetMethod();
+            CharacSheets character = new CharacSheets();
             CharacterClass horrorCharac = new CharacterClass();
 
             bool placeholder = false;
@@ -28,8 +29,11 @@ namespace CharacterCreation
                     character.PlayerName(horrorCharac);
                     placeholder = true;
                 }
-                if (choice == 2) { 
-                    return; }
+                if (choice == 2) { Menu.MainMenu(horrorCharac); }
+
+                else { throw new ArgumentException("Invalid input. Try again!"); }
+
+
             }
         }
         public void CurrentGame()
@@ -38,6 +42,8 @@ namespace CharacterCreation
         }
         public void CampaignMode()
         {
+            CharacterClass horrorCharacter = new CharacterClass();
+
             Console.WriteLine("Disoriented and dazed, you wake up to find yourself in a sanguine lobby. " +
                 "The door’s locked shut and you have no way of getting out in your current state. Looking around, " +
                 "it was the famed Redmill Manor, the most haunted building in the city of Nexto.");
@@ -69,7 +75,7 @@ namespace CharacterCreation
                 switch (choiceOne)
                 {
                     case 1:
-                        Menu.MainMenu();
+                        Menu.MainMenu(horrorCharacter);
                         break;
                     case 2:
                         Console.WriteLine("Press any key to confirm exit: ");

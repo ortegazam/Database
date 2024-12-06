@@ -8,9 +8,9 @@ using CharacterCreation;
 
 namespace CharacterCreation
 {
-    public class CharacSheet
+    public class CharacSheetsCon
     {
-        
+
         public static void Buffs(CharacterClass horrorCharacter)
         {
             string[] buffs = { "Enhanced Healing", "Increase Attack Speed", "Tough Defense", "Increased Stealth", "Increased Stamina" };
@@ -28,7 +28,7 @@ namespace CharacterCreation
             while (!ph)
             {
                 string[] armors = { "Sturdy Armor", "Leather Armor", "Iron Armor", "Chain Armor", "Cloth Armor" };
-                
+
                 Console.WriteLine("\nPlease choose your armor:\n");
                 Options.armors();
                 horrorCharacter.ft.armor = Console.ReadLine();
@@ -124,7 +124,7 @@ namespace CharacterCreation
                 switch (choice)
                 {
                     case 1:
-                        Menu.MainMenu();
+                        Menu.MainMenu(horrorCharacter);
                         break;
                     case 2:
                         PrintAll(horrorCharacter);
@@ -137,53 +137,56 @@ namespace CharacterCreation
             }
 
         }
-        public void Save()
-        {
-            try
-            {
-                Console.WriteLine("Save character?");
-                Console.WriteLine("(1) YES");
-                Console.WriteLine("(2) NO");
+    } }
 
-                int choice = Convert.ToInt32(Console.ReadLine());
+// public void Save()
+//{
+ //   try
+  //  {
+  //      Console.WriteLine("Save character?");
+  //      Console.WriteLine("(1) YES");
+  //      Console.WriteLine("(2) NO");
 
-                switch (choice)
-                {
-                    case 1:
-                        Menu.MainMenu();
-                        break;
-                    case 2:
+  //      int choice = Convert.ToInt32(Console.ReadLine());
 
-                        break;
-                    default:
-                        throw new Exception("Invalid input. Try again!");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
-        }
-        public void Edit()
-        {
+  //      switch (choice)
+   //     {
+ //           case 1:
+ //               Menu.MainMenu(horrorCharacter);
+ //               break;
+ //           case 2:
 
-            try
-            {
-                Console.WriteLine("Which trait do you wish to edit?");
-                Console.WriteLine("[1] Character Information");
-                Console.WriteLine("[2] Character's Unique Traits");
-                Console.WriteLine("[3] Character's Stats");
-                Console.WriteLine("[4] Clothing");
-                Console.WriteLine("[5] Accessories");
-                Console.WriteLine("[6] Physical Traits");
+//                break;
+ //           default:
+//                throw new Exception("Invalid input. Try again!");
+//        }
+//    }
+ //   catch (Exception ex)
+ //   {
+ //       Console.WriteLine("Error: " + ex.Message);
+ //   }
+//}
+//public void Edit()
+//{
 
-                throw new ArgumentException("Chosen trait unavailable. Try again!");
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
-        }
-    }
-}
+ //   try
+ //   {
+  //      Console.WriteLine("Which trait do you wish to edit?");
+  //      Console.WriteLine("[1] Character Information");
+   //     Console.WriteLine("[2] Character's Unique Traits");
+   //     Console.WriteLine("[3] Character's Stats");
+   //     Console.WriteLine("[4] Clothing");
+   //     Console.WriteLine("[5] Accessories");
+   //     Console.WriteLine("[6] Physical Traits");
+
+   //     throw new ArgumentException("Chosen trait unavailable. Try again!");
+  // }
+   // catch (ArgumentException ex)
+//    {
+  //      Console.WriteLine("Error: " + ex.Message);
+ //   }
+//} 
+
+//}
+//}
 

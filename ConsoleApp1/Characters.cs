@@ -6,7 +6,7 @@ namespace CharacterCreation
     {
         public Options op { get; set; }
         public features ft { get; set; }
-        public CharacSheet cs { get; set; }
+        public CharacSheetsCon cs { get; set; }
         public GameStruc gs { get; set; }
 
         public Characters()
@@ -15,7 +15,7 @@ namespace CharacterCreation
             this.ft = new features();
         }
 
-        public abstract void Scream();
+        public abstract void Introduction();
 
         public void Save()
         {

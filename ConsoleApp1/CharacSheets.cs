@@ -5,14 +5,15 @@ using System.Text.RegularExpressions;
 namespace CharacterCreation
 {
 
-    public class CharacterSheetMethod
+    public class CharacSheets
     {
+        features ft = new features();
         public void PlayerName(CharacterClass horrorCharacter)
         {
             string namePrompt = "Please enter your name (Alphanumeric, max 20 characters): ";
-            horrorCharacter.ft.playerName = InputValidator.ValidateStringInput(namePrompt, ValidatePlayerName, "HALA KA");    
+            horrorCharacter.ft.playerName = InputValidator.Validation(namePrompt, ValidatePlayerName, "HALA KA");    
             Console.WriteLine($"\nWelcome, {horrorCharacter.ft.playerName}! You're reaching your death.\n");
-            horrorCharacter.Scream();
+
             Age(horrorCharacter);
         }
 
@@ -23,10 +24,13 @@ namespace CharacterCreation
                 Console.WriteLine("Please enter your age: ");
                 Options.age();
 
-                horrorCharacter.ft.playerAge = Convert.ToInt32(Console.ReadLine());
+                int age = Convert.ToInt32(Console.ReadLine());    
+
+                horrorCharacter.ft.playerAge = InputValidator.Validation(age);
 
                 if (horrorCharacter.ft.playerAge < 0 && horrorCharacter.ft.playerAge > 5)
                 {
+                    
                     throw new Exception("Josko, par. Wala sa options 'yan e.");
                 }
                 else
@@ -52,43 +56,32 @@ namespace CharacterCreation
                     Console.WriteLine("\nPlease choose the gender you identified with: \n");
                     Options.gender();
 
-                    horrorCharacter.ft.playerGender = Console.ReadLine().ToUpper();
+                    horrorCharacter.ft.playerGender = Console.ReadLine();
 
                     switch (horrorCharacter.ft.playerGender)
                     {
-                        case "A":
+                        case "1":
+                            ft.playerGender = "Female";
                             GameType(horrorCharacter);
                             placeholder = true;
                             break;
-                        case "B":
+                        case "2":
+                            ft.playerGender = "Male";
                             GameType(horrorCharacter);
                             placeholder = true;
                             break;
-                        case "C":
+                        case "3":
+                            ft.playerGender = "Nonbinary";
                             GameType(horrorCharacter);
                             placeholder = true;
                             break;
-                        case "D":
+                        case "4":
+                            ft.playerGender = "Prefer not to say";
                             GameType(horrorCharacter);
                             placeholder = true;
                             break;
-                        case "E":
-                            GameType(horrorCharacter);
-                            placeholder = true;
-                            break;
-                        case "F":
-                            GameType(horrorCharacter);
-                            placeholder = true;
-                            break;
-                        case "G":
-                            GameType(horrorCharacter);
-                            placeholder = true;
-                            break;
-                        case "H":
-                            GameType(horrorCharacter);
-                            placeholder = true;
-                            break;
-                        case "I":
+                        case "5":
+                            ft.playerGender = "Others";
                             GameType(horrorCharacter);
                             placeholder = true;
                             break;
@@ -111,26 +104,24 @@ namespace CharacterCreation
 
             while (!placeholder)
             {
-                string[] choices = { "Hunter", "Survivor" };
+                string[] choices = { "1", "2" };
                 try
                 {
-                    Console.WriteLine($"{"[A]",-5} Hunter: Hunters are known for eating their prey, " +
-                        "claws gritting against their prey’s skin.");
-                    Console.WriteLine($"{"[B]",-5} Survivor: You will search for clues regarding the mysterious " +
-                        "accident that led you here, undiscovered by the enemy.");
+                    Console.WriteLine($"{"[1]",-5} Hunter: Hunters are known for eating their prey, claws gritting against their prey’s skin.");
+                    Console.WriteLine($"{"[2]",-5} Survivor: You will search for clues regarding the mysterious accident that led you here, undiscovered by the enemy");
                     Console.WriteLine($"Please choose your team type, {horrorCharacter.ft.playerName}.\n");
 
                     char choice = Convert.ToChar(Console.ReadLine().ToUpper());
 
                     switch (choice)
                     {
-                        case 'A':
+                        case '1':
                             horrorCharacter.ft.teamType = "Team Type: Hunter";
-                            Options.hunterSkills();
+                            HunterSkills(horrorCharacter);
                             placeholder = true;
                             break;
 
-                        case 'B':
+                        case '2':
                             horrorCharacter.ft.teamType = "Team Type: Survivor";
                             SurvivorSkills(horrorCharacter);
 
@@ -158,27 +149,45 @@ namespace CharacterCreation
 
             while (!ph)
             {
+               
                 try
                 {
-                    string[] skillChoices = { "Doppelganger", "Poltergeist", "Trickster", "Phantom", "Assassin" };
-
-                    Console.WriteLine("\nPlease choose your skill:");
+                    Console.WriteLine("\nPlease choose your skill:\n");
                     Options.hunterSkills();
 
-                    horrorCharacter.ft.hunterSkill = Console.ReadLine();
+                    string choices = Console.ReadLine();
 
-                    if (Array.Exists(skillChoices, skillChoices => skillChoices.Equals(skillChoices, StringComparison.OrdinalIgnoreCase)))
+                    switch (choices)
                     {
-                        Weapon(horrorCharacter);
-                        ph = true;
+                        case "1":
+                            ft.hunterSkill = "Doppelganger";
+                            Weapon(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "2":
+                            ft.hunterSkill = "Poltergeist";
+                            Weapon(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "3":
+                            ft.hunterSkill = "Trickster";
+                            Weapon(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "4":
+                            ft.hunterSkill = "Phantom";
+                            Weapon(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "5":
+                            ft.hunterSkill = "Assassin";
+                            Weapon(horrorCharacter);
+                            ph = true;
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
                     }
-                    else
-                    {
-                        Console.WriteLine("Invalid input! Try again.");
-                    }
-
                 }
-
                 catch (ArgumentException ex)
                 {
                     Console.WriteLine("Error: " + ex.Message);
@@ -187,35 +196,166 @@ namespace CharacterCreation
         }
         public void SurvivorSkills(CharacterClass horrorCharacter)
         {
-            string[] skillChoices = { "Ace In The Hole", "Blood Pact", "Circle of Healing", "Borrowed Time", "Critical Thinking" };
+            bool ph = false;
 
-            Console.WriteLine("\nPlease choose your skill:\n");
-            Options.survivorSkills();
+            while (!ph)
+            {
+                
+                try
+                {
+                   
+                    Console.WriteLine("\nPlease choose your skill:\n");
+                    Options.survivorSkills();
 
-            horrorCharacter.ft.survivorSkill = Console.ReadLine();
+                    horrorCharacter.ft.survivorSkill = Console.ReadLine();
 
-            Weapon(horrorCharacter);
+
+                    switch (horrorCharacter.ft.survivorSkill)
+                    {
+                        case "1":
+                            ft.survivorSkill = "Ace in the Hole";
+                            Weapon(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "2":
+                            ft.survivorSkill = "Blood Pact";
+                            Weapon(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "3":
+                            ft.survivorSkill = "Circle of Healing";
+                            Weapon(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "4":
+                            ft.survivorSkill = "Borrowed Time";
+                            Weapon(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "5":
+                            ft.survivorSkill = "Critical Thinking";
+                            Weapon(horrorCharacter);
+                            ph = true;
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
         }
         public void Weapon(CharacterClass horrorCharacter)
         {
-            string[] weaponChoices = { "Rifle", "Machete", "Axe", "Pistol", "Grenade Launcher" };
+            
+            bool ph = false;
 
-            Console.WriteLine("\nPlease choose your weapon:");
-            Options.weapon();
+            while (!ph)
+            {
 
-            horrorCharacter.ft.weapon = Console.ReadLine();
+                try
+                {
 
-            Abilities(horrorCharacter);
+                    Console.WriteLine("\nPlease choose your weapon:");
+                    Options.weapon();
+
+                    horrorCharacter.ft.weapon = Console.ReadLine();
+
+
+                    switch (horrorCharacter.ft.weapon)
+                    {
+                        case "1":
+                            ft.weapon = "Ace in the Hole";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "2":
+                            ft.weapon = "Blood Pact";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "3":
+                            ft.weapon = "Circle of Healing";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "4":
+                            ft.weapon = "Borrowed Time";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "5":
+                            ft.weapon = "Critical Thinking";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+
         }
         public void Abilities(CharacterClass horrorCharacter)
         {
-
-            Console.WriteLine("\nPlease choose your ability:\n");
-            Options.ability();
-
-            horrorCharacter.ft.ability = Console.ReadLine();
-
             Stats(horrorCharacter);
+
+            
+            bool ph = false;
+
+            while (!ph)
+            {
+
+                try
+                {
+                    Console.WriteLine("\nPlease choose your ability:\n");
+                    Options.ability();
+
+                    horrorCharacter.ft.ability = Console.ReadLine();
+
+                    switch (horrorCharacter.ft.ability)
+                    {
+                        case "1":
+                            ft.ability = "Healing";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "2":
+                            ft.ability = "Sword Wielder";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "3":
+                            ft.ability = "Marksman";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "4":
+                            ft.ability = "Clairvoyance";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "5":
+                            ft.ability = "Silent Steps";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+
         }
         public void Stats(CharacterClass horrorCharacter)
         {
@@ -264,7 +404,7 @@ namespace CharacterCreation
                             Console.WriteLine("You added 2 points to ENERGY.");
                             break;
                         default:
-                            Console.WriteLine("Invalid input! Try again.");
+                            throw new ArgumentException("Invalid input. Try again!");
                             i--;
                             continue;
                     }
@@ -280,28 +420,48 @@ namespace CharacterCreation
         }
         public void PhysicalTraits(CharacterClass horrorCharacter)
         {
-            Console.WriteLine("here ka na!");
-            Console.ReadKey();
+
             bool ph = false;
             while (!ph)
             {
                 try
                 {
-                    string[] hairStyleChoices = { "Clean Cut", "Buzz Cut", "Fade Cut", "Wolf Cut" };
-                    string[] hairColorChoices = { "Red", "Black", "Brown", "Orange", "Blonde" };
-                    string[] skinColorChoices = { "Brown", "Black", "White", "Yellow", "Porcelain" };
-                    string[] eyeColorChoices = { "Brown", "Black", "Red", "Blue", "Green" };
-                    string[] scarChoices = { "Eye scar", "Leg scar", "Arm scar", "Chest scar", "Shoulder scar" };
-                    string[] faceShapeChoices = { "Triangular", "Oval", "Circle", "Square", "Diamond" };
-                    string[] faceExpressionChoices = { "Angry", "Sad", "Smile", "Calm", "Confused" };
-                    string[] heightChoices = { "Short", "Average", "Tall", "Dwarf", "Giant" };
-                    string[] weightChoices = { "Skinny", "Slim", "Fit", "Plump", "Fat" };
-
+                    
                     Console.WriteLine("\nPlease choose your hairstyle:\n");
                     Options.hairStyle();
 
                     horrorCharacter.ft.hairStyle = Console.ReadLine();
 
+                    switch (horrorCharacter.ft.hairStyle)
+                    {
+                        case "1":
+                            ft.hairStyle = "Healing";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "2":
+                            ft.hairStyle = "Sword Wielder";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "3":
+                            ft.hairStyle = "Marksman";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "4":
+                            ft.hairStyle = "Clairvoyance";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "5":
+                            ft.hairStyle = "Silent Steps";
+                            Abilities(horrorCharacter);
+                            ph = true;
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
 
                     Console.WriteLine("\nPlease choose your hair color:\n");
                     Options.hairColor();
@@ -394,7 +554,7 @@ namespace CharacterCreation
             Console.WriteLine($"Anklet:\n{string.Join("\n", anklets)}");
             horrorCharacter.ft.anklet = Console.ReadLine();
 
-            CharacSheet.Armor(horrorCharacter);
+            CharacSheetsCon.Armor(horrorCharacter);
         }
 
         private bool ValidatePlayerName(string input)

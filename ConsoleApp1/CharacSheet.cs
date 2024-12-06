@@ -4,21 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CharacterCreation;
-using Finals;
+
 
 namespace CharacterCreation
 {
-    public interface saveOrEdit
+    public class CharacSheet : CharacterClass
     {
-        void Save();
-        void Edit();
-    }
-
-    public class CharacSheet : saveOrEdit
-    {
-        Options opt = new Options();
-        features ft = new features();
-
+        /*
         public void Accessories()
         {
             string[] hats = { "Baseball Cap", "Cowboy Hat", "Beret", "Bucket Hat", "Fedora", "None" };
@@ -100,6 +92,8 @@ namespace CharacterCreation
                 PrintAll();
             }
         }
+
+        */
         public virtual void PrintAll()
         {
             Console.WriteLine($"\nCharacter Information:");

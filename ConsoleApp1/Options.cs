@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Finals
+namespace CharacterCreation
 {
     public class Options
     {
-        public void age()
+        public static void age()
         {
             Console.WriteLine($"[1] Child {"",-17} | (7 - 13 years old)");
             Console.WriteLine($"[2] Teenager {"",-14} | (14 - 20 years old)");
@@ -17,7 +17,7 @@ namespace Finals
             Console.WriteLine($"[4] Middle Age {"",-12} | (41 - 55 years old)");
             Console.WriteLine($"[5] Old {"",-19} | (56 years old above)");
         }
-        public void gender()
+        public static void gender()
         {
             Console.WriteLine($"{"[A]",-5}Agender");
             Console.WriteLine($"{"[B]",-5}Cisgender");
@@ -29,7 +29,7 @@ namespace Finals
             Console.WriteLine($"{"[H]",-5}Bigender");
             Console.WriteLine($"{"[I]",-5}Others");
         }
-        public void hairStyle()
+        public static void hairStyle()
         {
             Console.WriteLine("Clean Cut");
             Console.WriteLine("Buzz Cut");

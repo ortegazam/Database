@@ -1,72 +1,37 @@
 ﻿using System.Net.Http.Headers;
-using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
-using Finals;
+
 
 namespace CharacterCreation
 {
 
     public class CharacterSheetMethod
     {
-
-        CharacSheet cs = new CharacSheet();
-        features ft = new features();
-        Options opt = new Options();
-        public void PlayerName()
+        public void PlayerName(CharacterClass horrorCharacter)
         {
-            bool placeholder = false;
-
-            while (!placeholder)
-            {
-                {
-                    try
-                    {
-                        Console.WriteLine("Please enter your name: ");
-                        Console.WriteLine("Alphanumeric characters only. Your name is limited to 20 characters only. ");
-
-                        ft.playerName = Console.ReadLine();
-
-                        if (Regex.IsMatch(ft.playerName, @"^[A-Za-z0-9]+$") && ft.playerName.Length <= 20 && ft.playerName.Length >= 1)
-                        {
-                            Console.WriteLine($"\nWelcome, {ft.playerName}! You're reaching your death.\n");
-                            Age();
-
-                            placeholder = true;
-                        }
-                        else
-                        {
-                            throw new Exception("Hala ka!");
-                        }
-                    }
-                    catch (FormatException ex)
-                    {
-                        Console.WriteLine("Error: " + ex.Message);
-                    }
-
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Error: " + ex.Message);
-                    }
-                }
-            }
+            string namePrompt = "Please enter your name (Alphanumeric, max 20 characters): ";
+            horrorCharacter.ft.playerName = InputValidator.ValidateStringInput(namePrompt, ValidatePlayerName, "HALA KA");    
+            Console.WriteLine($"\nWelcome, {horrorCharacter.ft.playerName}! You're reaching your death.\n");
+            horrorCharacter.Scream();
+            Age(horrorCharacter);
         }
 
-        public void Age()
+        public void Age(CharacterClass horrorCharacter)
         {
             try
             {
                 Console.WriteLine("Please enter your age: ");
-                opt.age();
+                Options.age();
 
-                ft.playerAge = Convert.ToInt32(Console.ReadLine());
+                horrorCharacter.ft.playerAge = Convert.ToInt32(Console.ReadLine());
 
-                if (ft.playerAge < 0 && ft.playerAge > 5)
+                if (horrorCharacter.ft.playerAge < 0 && horrorCharacter.ft.playerAge > 5)
                 {
                     throw new Exception("Josko, par. Wala sa options 'yan e.");
                 }
                 else
                 {
-                    Gender();
+                    Gender(horrorCharacter);
                 }
             }
             catch (Exception ex)
@@ -74,7 +39,9 @@ namespace CharacterCreation
                 Console.WriteLine("Error: " + ex.Message);
             }
         }
-        public void Gender()
+
+        
+        public void Gender(CharacterClass horrorCharacter)
         {
             bool placeholder = false;
 
@@ -83,46 +50,46 @@ namespace CharacterCreation
                 try
                 {
                     Console.WriteLine("\nPlease choose the gender you identified with: \n");
-                    opt.gender();
+                    Options.gender();
 
-                    ft.playerGender = Console.ReadLine().ToUpper();
+                    horrorCharacter.ft.playerGender = Console.ReadLine().ToUpper();
 
-                    switch (ft.playerGender)
+                    switch (horrorCharacter.ft.playerGender)
                     {
                         case "A":
-                            GameType();
+                            GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "B":
-                            GameType();
+                            GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "C":
-                            GameType();
+                            GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "D":
-                            GameType();
+                            GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "E":
-                            GameType();
+                            GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "F":
-                            GameType();
+                            GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "G":
-                            GameType();
+                            GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "H":
-                            GameType();
+                            GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "I":
-                            GameType();
+                            GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         default:
@@ -135,7 +102,8 @@ namespace CharacterCreation
                 }
             }
         }
-        public void GameType()
+
+        public void GameType(CharacterClass horrorCharacter)
         {
             bool placeholder = false;
 
@@ -144,25 +112,25 @@ namespace CharacterCreation
                 string[] choices = { "Hunter", "Survivor" };
                 try
                 {
-                    Console.WriteLine($"{"[A]", -5} Hunter: Hunters are known for eating their prey, " +
+                    Console.WriteLine($"{"[A]",-5} Hunter: Hunters are known for eating their prey, " +
                         "claws gritting against their prey’s skin.");
-                    Console.WriteLine($"{"[B]", -5} Survivor: You will search for clues regarding the mysterious " +
+                    Console.WriteLine($"{"[B]",-5} Survivor: You will search for clues regarding the mysterious " +
                         "accident that led you here, undiscovered by the enemy.");
-                    Console.WriteLine($"Please choose your team type, {ft.playerName}.\n");
+                    Console.WriteLine($"Please choose your team type, {horrorCharacter.ft.playerName}.\n");
 
                     char choice = Convert.ToChar(Console.ReadLine().ToUpper());
 
                     switch (choice)
                     {
                         case 'A':
-                            ft.teamType = "Team Type: Hunter";
-                            HunterSkills();
+                            horrorCharacter.ft.teamType = "Team Type: Hunter";
+                            Options.HunterSkills();
                             placeholder = true;
                             break;
 
                         case 'B':
-                            ft.teamType = "Team Type: Survivor";
-                            SurvivorSkills();
+                            horrorCharacter.ft.teamType = "Team Type: Survivor";
+                            SurvivorSkills(horrorCharacter);
 
                             placeholder = true;
                             break;
@@ -181,7 +149,8 @@ namespace CharacterCreation
             }
 
         }
-        public void HunterSkills()
+        
+        public void HunterSkills(CharacterClass horrorCharacter)
         {
             bool ph = false;
 
@@ -192,9 +161,9 @@ namespace CharacterCreation
                     string[] skillChoices = { "Doppelganger", "Poltergeist", "Trickster", "Phantom", "Assassin" };
 
                     Console.WriteLine("\nPlease choose your skill:");
-                    opt.hunterSkills();
+                    Options.hunterSkills();
 
-                    ft.hunterSkill = Console.ReadLine();
+                    horrorCharacter.ft.hunterSkill = Console.ReadLine();
 
                     if (Array.Exists(skillChoices, skillChoices => skillChoices.Equals(skillChoices, StringComparison.OrdinalIgnoreCase)))
                     {
@@ -214,25 +183,25 @@ namespace CharacterCreation
                 }
             }
         }
-        public void SurvivorSkills()
+        public void SurvivorSkills(CharacterClass horrorCharacter)
         {
             string[] skillChoices = { "Ace In The Hole", "Blood Pact", "Circle of Healing", "Borrowed Time", "Critical Thinking" };
 
             Console.WriteLine("\nPlease choose your skill:\n");
-            opt.survivorSkills();
+            Options.survivorSkills();
 
-            ft.survivorSkill = Console.ReadLine();
+            horrorCharacter.ft.survivorSkill = Console.ReadLine();
 
             Weapon();
         }
-        public void Weapon()
+        public void Weapon(CharacterClass horrorCharacter)
         {
             string[] weaponChoices = { "Rifle", "Machete", "Axe", "Pistol", "Grenade Launcher" };
 
             Console.WriteLine("\nPlease choose your weapon:");
-            opt.weapon();
+            Options.weapon();
 
-            ft.weapon = Console.ReadLine();
+            horrorCharacter.ft.weapon = Console.ReadLine();
 
             Abilities();
         }
@@ -240,7 +209,7 @@ namespace CharacterCreation
         {
 
             Console.WriteLine("\nPlease choose your ability:\n");
-            opt.ability();
+            Options.ability();
 
             ft.ability = Console.ReadLine();
 
@@ -268,7 +237,7 @@ namespace CharacterCreation
                     Console.WriteLine("5. Energy, +2 XP permanently.");
                     Console.Write("\nWhat stat do you wish to increase? ");
 
-                   
+
                     int choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
                     {
@@ -294,15 +263,15 @@ namespace CharacterCreation
                             break;
                         default:
                             Console.WriteLine("Invalid input! Try again.");
-                            i--; 
+                            i--;
                             continue;
                     }
                     ft.stats--;
 
                     if (ft.stats == 0)
                     {
-                        
-                        PhysicalTraits(); 
+
+                        PhysicalTraits();
                     }
                 }
             }
@@ -325,50 +294,50 @@ namespace CharacterCreation
                     string[] weightChoices = { "Skinny", "Slim", "Fit", "Plump", "Fat" };
 
                     Console.WriteLine("\nPlease choose your hairstyle:\n");
-                    opt.hairStyle();
+                    Options.hairStyle();
 
                     ft.hairStyle = Console.ReadLine();
 
 
                     Console.WriteLine("\nPlease choose your hair color:\n");
-                    opt.hairColor();
+                    Options.hairColor();
 
                     ft.hairColor = Console.ReadLine();
 
                     Console.WriteLine("\nPlease choose your skin color:");
-                    opt.skinColor();
+                    Options.skinColor();
 
                     ft.skinColor = Console.ReadLine();
 
                     Console.WriteLine("\nPlease choose your eye color:");
-                    opt.eyeColor();
+                    Options.eyeColor();
 
                     ft.eyeColor = Console.ReadLine();
 
                     Console.WriteLine("\nPlease choose your scar:\n");
-                    
+
 
                     ft.scar = Console.ReadLine();
 
 
                     Console.WriteLine("\nPlease choose your face shape:\n");
-                    opt.shape();
+                    Options.shape();
 
                     ft.faceShape = Console.ReadLine();
 
 
                     Console.WriteLine("\nPlease choose your expression:\n");
-                    opt.expression();
+                    Options.expression();
                     ft.faceExpression = Console.ReadLine();
 
 
                     Console.WriteLine("\nPlease choose your height:\n");
-                    opt.heights();
+                    Options.heights();
                     ft.height = Console.ReadLine();
 
 
                     Console.WriteLine("\nPlease choose your weight:\n");
-                    opt.weights();
+                    Options.weights();
                     ft.weight = Console.ReadLine();
 
                     Clothing();
@@ -381,8 +350,8 @@ namespace CharacterCreation
                 }
             }
         }
-            public void Clothing()
-             {
+        public void Clothing()
+        {
 
             string[] top = { "Shirt", "Jacket", "Long Sleeves", "Dress", "Shoulder split", "Hoodie" };
             string[] pants = { "Cargo", "Shorts", "Jeans", "Leather Pants", "Khaki Pants" };
@@ -396,7 +365,11 @@ namespace CharacterCreation
 
             cs.Accessories();
         }
+        
+        private bool ValidatePlayerName(string input)
+        {
+            return Regex.IsMatch(input, @"^[A-Za-z0-9]+$") && input.Length <= 20 && input.Length > 0;
+        }
+        
     }
 }
-              
-        

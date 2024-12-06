@@ -9,10 +9,9 @@ namespace CharacterCreation
     {
         public void NewGame()
         {
-
             Menu menu = new Menu();
             CharacterSheetMethod character = new CharacterSheetMethod();
-            
+            CharacterClass horrorCharac = new CharacterClass();
 
             bool placeholder = false;
 
@@ -26,7 +25,7 @@ namespace CharacterCreation
 
                 if (choice == 1)
                 {
-                    character.PlayerName();
+                    character.PlayerName(horrorCharac);
                     placeholder = true;
                 }
                 if (choice == 2) { 

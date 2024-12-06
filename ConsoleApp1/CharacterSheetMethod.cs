@@ -105,6 +105,8 @@ namespace CharacterCreation
 
         public void GameType(CharacterClass horrorCharacter)
         {
+            horrorCharacter.gs = new GameStruc(horrorCharacter.ft.playerName, horrorCharacter.ft.playerAge, horrorCharacter.ft.playerGender);
+
             bool placeholder = false;
 
             while (!placeholder)
@@ -124,7 +126,7 @@ namespace CharacterCreation
                     {
                         case 'A':
                             horrorCharacter.ft.teamType = "Team Type: Hunter";
-                            Options.HunterSkills();
+                            Options.hunterSkills();
                             placeholder = true;
                             break;
 
@@ -145,7 +147,7 @@ namespace CharacterCreation
                 {
                     Console.WriteLine($"Error: {ex.Message}!");
                 }
-
+                HunterSkills(horrorCharacter);
             }
 
         }
@@ -167,7 +169,7 @@ namespace CharacterCreation
 
                     if (Array.Exists(skillChoices, skillChoices => skillChoices.Equals(skillChoices, StringComparison.OrdinalIgnoreCase)))
                     {
-                        Weapon();
+                        Weapon(horrorCharacter);
                         ph = true;
                     }
                     else
@@ -192,7 +194,7 @@ namespace CharacterCreation
 
             horrorCharacter.ft.survivorSkill = Console.ReadLine();
 
-            Weapon();
+            Weapon(horrorCharacter);
         }
         public void Weapon(CharacterClass horrorCharacter)
         {
@@ -203,28 +205,28 @@ namespace CharacterCreation
 
             horrorCharacter.ft.weapon = Console.ReadLine();
 
-            Abilities();
+            Abilities(horrorCharacter);
         }
-        public void Abilities()
+        public void Abilities(CharacterClass horrorCharacter)
         {
 
             Console.WriteLine("\nPlease choose your ability:\n");
             Options.ability();
 
-            ft.ability = Console.ReadLine();
+            horrorCharacter.ft.ability = Console.ReadLine();
 
-            Stats();
+            Stats(horrorCharacter);
         }
-        public void Stats()
+        public void Stats(CharacterClass horrorCharacter)
         {
-            ft.health = 120;
-            ft.strength = 10;
-            ft.stamina = 10;
-            ft.speed = 10;
-            ft.energy = 10;
-            ft.stats = 5;
+            horrorCharacter.ft.health = 120;
+            horrorCharacter.ft.strength = 10;
+            horrorCharacter.ft.stamina = 10;
+            horrorCharacter.ft.speed = 10;
+            horrorCharacter.ft.energy = 10;
+            horrorCharacter.ft.stats = 5;
 
-            while (ft.stats > 0)
+            while (horrorCharacter.ft.stats > 0)
             {
                 Console.WriteLine("\nPlease choose where you want to put your (5) free stat points:");
 
@@ -242,23 +244,23 @@ namespace CharacterCreation
                     switch (choice)
                     {
                         case 1:
-                            ft.health += 15;
+                            horrorCharacter.ft.health += 15;
                             Console.WriteLine("You added 15 points to HEALTH.");
                             break;
                         case 2:
-                            ft.strength += 5;
+                            horrorCharacter.ft.strength += 5;
                             Console.WriteLine("You added 5 points to STRENGTH.");
                             break;
                         case 3:
-                            ft.stamina += 4;
+                            horrorCharacter.ft.stamina += 4;
                             Console.WriteLine("You added 4 points to STAMINA.");
                             break;
                         case 4:
-                            ft.speed += 2;
+                            horrorCharacter.ft.speed += 2;
                             Console.WriteLine("You added 2 points to SPEED.");
                             break;
                         case 5:
-                            ft.energy += 2;
+                            horrorCharacter.ft.energy += 2;
                             Console.WriteLine("You added 2 points to ENERGY.");
                             break;
                         default:
@@ -266,20 +268,22 @@ namespace CharacterCreation
                             i--;
                             continue;
                     }
-                    ft.stats--;
+                    horrorCharacter.ft.stats--;
 
-                    if (ft.stats == 0)
+                    if (horrorCharacter.ft.stats == 0)
                     {
 
-                        PhysicalTraits();
+                        PhysicalTraits(horrorCharacter);
                     }
                 }
             }
         }
-        public void PhysicalTraits()
+        public void PhysicalTraits(CharacterClass horrorCharacter)
         {
+            Console.WriteLine("here ka na!");
+            Console.ReadKey();
             bool ph = false;
-            while (ph)
+            while (!ph)
             {
                 try
                 {
@@ -296,53 +300,53 @@ namespace CharacterCreation
                     Console.WriteLine("\nPlease choose your hairstyle:\n");
                     Options.hairStyle();
 
-                    ft.hairStyle = Console.ReadLine();
+                    horrorCharacter.ft.hairStyle = Console.ReadLine();
 
 
                     Console.WriteLine("\nPlease choose your hair color:\n");
                     Options.hairColor();
 
-                    ft.hairColor = Console.ReadLine();
+                    horrorCharacter.ft.hairColor = Console.ReadLine();
 
                     Console.WriteLine("\nPlease choose your skin color:");
                     Options.skinColor();
 
-                    ft.skinColor = Console.ReadLine();
+                    horrorCharacter.ft.skinColor = Console.ReadLine();
 
                     Console.WriteLine("\nPlease choose your eye color:");
                     Options.eyeColor();
 
-                    ft.eyeColor = Console.ReadLine();
+                    horrorCharacter.ft.eyeColor = Console.ReadLine();
 
                     Console.WriteLine("\nPlease choose your scar:\n");
 
 
-                    ft.scar = Console.ReadLine();
+                    horrorCharacter.ft.scar = Console.ReadLine();
 
 
                     Console.WriteLine("\nPlease choose your face shape:\n");
                     Options.shape();
 
-                    ft.faceShape = Console.ReadLine();
+                    horrorCharacter.ft.faceShape = Console.ReadLine();
 
 
                     Console.WriteLine("\nPlease choose your expression:\n");
                     Options.expression();
-                    ft.faceExpression = Console.ReadLine();
+                    horrorCharacter.ft.faceExpression = Console.ReadLine();
 
 
                     Console.WriteLine("\nPlease choose your height:\n");
                     Options.heights();
-                    ft.height = Console.ReadLine();
+                    horrorCharacter.ft.height = Console.ReadLine();
 
 
                     Console.WriteLine("\nPlease choose your weight:\n");
                     Options.weights();
-                    ft.weight = Console.ReadLine();
+                    horrorCharacter.ft.weight = Console.ReadLine();
 
-                    Clothing();
+                    Clothing(horrorCharacter);
 
-
+                    ph = true;
                 }
                 catch (ArgumentException ex)
                 {
@@ -350,7 +354,7 @@ namespace CharacterCreation
                 }
             }
         }
-        public void Clothing()
+        public void Clothing(CharacterClass horrorCharacter)
         {
 
             string[] top = { "Shirt", "Jacket", "Long Sleeves", "Dress", "Shoulder split", "Hoodie" };
@@ -358,14 +362,41 @@ namespace CharacterCreation
 
             Console.WriteLine("\nPlease choose your clothes:\n");
             Console.WriteLine($"Top:\n{string.Join("\n ", top)}");
-            ft.playerTop = Console.ReadLine();
+            horrorCharacter.ft.playerTop = Console.ReadLine();
 
             Console.WriteLine($"Pants:\n{string.Join("\n ", pants)}");
-            ft.playerPants = Console.ReadLine();
+            horrorCharacter.ft.playerPants = Console.ReadLine();
 
-            cs.Accessories();
+            Accessories(horrorCharacter);
         }
-        
+
+        public static void Accessories(CharacterClass horrorCharacter)
+        {
+            string[] hats = { "Baseball Cap", "Cowboy Hat", "Beret", "Bucket Hat", "Fedora", "None" };
+            string[] playerGlasses = { "Square Eyeglasses", "Round Eyeglasses", "Oval Eyeglasses", "Rectangle Eyeglasses", "Sunglasses", "None" };
+            string[] necklaces = { "Gold", "Silver", "Chain", "Diamond", "Pearl", "None" };
+            string[] bracelets = { "Gold", "Silver", "Chain", "Diamond", "Pearl", "None" };
+            string[] anklets = { "Charm Anklet", "Gold Anklet", "Beaded Anklet", "Chain Anklet", "Silver Anklet", "None" };
+
+            Console.WriteLine("\nPlease choose your accessories:\n");
+            Console.WriteLine($"Hat: \n{string.Join("\n", hats)}");
+            horrorCharacter.ft.hat = Console.ReadLine();
+
+            Console.WriteLine($"Glasses:\n{string.Join("\n", playerGlasses)}");
+            horrorCharacter.ft.glasses = Console.ReadLine();
+
+            Console.WriteLine($"Necklace:\n{string.Join("\n", necklaces)}");
+            horrorCharacter.ft.necklace = Console.ReadLine();
+
+            Console.WriteLine($"Bracelet:\n{string.Join("\n", bracelets)}");
+            horrorCharacter.ft.bracelet = Console.ReadLine();
+
+            Console.WriteLine($"Anklet:\n{string.Join("\n", anklets)}");
+            horrorCharacter.ft.anklet = Console.ReadLine();
+
+            CharacSheet.Armor(horrorCharacter);
+        }
+
         private bool ValidatePlayerName(string input)
         {
             return Regex.IsMatch(input, @"^[A-Za-z0-9]+$") && input.Length <= 20 && input.Length > 0;

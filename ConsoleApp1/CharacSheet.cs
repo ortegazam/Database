@@ -8,46 +8,20 @@ using CharacterCreation;
 
 namespace CharacterCreation
 {
-    public class CharacSheet : CharacterClass
+    public class CharacSheet
     {
-        /*
-        public void Accessories()
-        {
-            string[] hats = { "Baseball Cap", "Cowboy Hat", "Beret", "Bucket Hat", "Fedora", "None" };
-            string[] playerGlasses = { "Square Eyeglasses", "Round Eyeglasses", "Oval Eyeglasses", "Rectangle Eyeglasses", "Sunglasses", "None" };
-            string[] necklaces = { "Gold", "Silver", "Chain", "Diamond", "Pearl", "None" };
-            string[] bracelets = { "Gold", "Silver", "Chain", "Diamond", "Pearl", "None" };
-            string[] anklets = { "Charm Anklet", "Gold Anklet", "Beaded Anklet", "Chain Anklet", "Silver Anklet", "None" };
-
-            Console.WriteLine("\nPlease choose your accessories:\n");
-            Console.WriteLine($"Hat: \n{string.Join("\n", hats)}");
-            ft.hat = Console.ReadLine();
-
-            Console.WriteLine($"Glasses:\n{string.Join("\n", playerGlasses)}");
-            ft.glasses = Console.ReadLine();
-
-            Console.WriteLine($"Necklace:\n{string.Join("\n", necklaces)}");
-            ft.necklace = Console.ReadLine();
-
-            Console.WriteLine($"Bracelet:\n{string.Join("\n", bracelets)}");
-            ft.bracelet = Console.ReadLine();
-
-            Console.WriteLine($"Anklet:\n{string.Join("\n", anklets)}");
-            ft.anklet = Console.ReadLine();
-
-            Armor();
-        }
-        public void Buffs()
+        
+        public static void Buffs(CharacterClass horrorCharacter)
         {
             string[] buffs = { "Enhanced Healing", "Increase Attack Speed", "Tough Defense", "Increased Stealth", "Increased Stamina" };
 
             Console.WriteLine($"Buffs:\n{string.Join("\n ", buffs)}"); ;
-            ft.buff = Console.ReadLine();
+            horrorCharacter.ft.buff = Console.ReadLine();
 
-            Attitude();
+            Attitude(horrorCharacter);
 
         }
-        public void Armor()
+        public static void Armor(CharacterClass horrorCharacter)
         {
 
             bool ph = false;
@@ -56,11 +30,11 @@ namespace CharacterCreation
                 string[] armors = { "Sturdy Armor", "Leather Armor", "Iron Armor", "Chain Armor", "Cloth Armor" };
                 
                 Console.WriteLine("\nPlease choose your armor:\n");
-                opt.armors();
-                ft.armor = Console.ReadLine();
+                Options.armors();
+                horrorCharacter.ft.armor = Console.ReadLine();
 
-                if (Array.Exists(armors, armors => armors.Equals(ft.armor, StringComparison.OrdinalIgnoreCase))) {
-                    Buffs();
+                if (Array.Exists(armors, armors => armors.Equals(horrorCharacter.ft.armor, StringComparison.OrdinalIgnoreCase))) {
+                    Buffs(horrorCharacter);
                     ph = true;
                 }
                 else
@@ -69,19 +43,19 @@ namespace CharacterCreation
                 }
             }
         }
-        public void Attitude()
+        public static void Attitude(CharacterClass horrorCharacter)
         {
             bool ph = false;
             while (!ph)
             {
                 string[] attitudes = { "Wistful", "Enthusiastic", "Calm", "Scared", "Blank" };
 
-                opt.attitudes();
-                ft.attitude = Console.ReadLine();
+                Options.attitudes();
+                horrorCharacter.ft.attitude = Console.ReadLine();
 
-                if (Array.Exists(attitudes, attitude => attitude.Equals(ft.armor, StringComparison.OrdinalIgnoreCase)))
+                if (Array.Exists(attitudes, attitude => attitude.Equals(horrorCharacter.ft.armor, StringComparison.OrdinalIgnoreCase)))
                 {
-                    Buffs();
+                    Buffs(horrorCharacter);
                     ph = true;
                 }
                 else
@@ -89,53 +63,52 @@ namespace CharacterCreation
                     Console.WriteLine("Invalid input! Try again.");
                 }
 
-                PrintAll();
+                PrintAll(horrorCharacter);
             }
         }
 
-        */
-        public virtual void PrintAll()
+        public static void PrintAll(CharacterClass horrorCharacter)
         {
             Console.WriteLine($"\nCharacter Information:");
-            Console.WriteLine($"Name: {ft.playerName}");
-            Console.WriteLine($"Age: {ft.playerAge}");
-            Console.WriteLine($"Gender: {ft.playerGender}");
-            Console.WriteLine($"{ft.teamType}\n");
+            Console.WriteLine($"Name: {horrorCharacter.gs.playerName}");
+            Console.WriteLine($"Age: {horrorCharacter.gs.playerAge}");
+            Console.WriteLine($"Gender: {horrorCharacter.gs.playerGender}");
+            Console.WriteLine($"{horrorCharacter.ft.teamType}\n");
 
             Console.WriteLine($"Clothes: ");
-            Console.WriteLine($"Top: {ft.playerTop}");
-            Console.WriteLine($"Pants: {ft.playerPants}\n");
+            Console.WriteLine($"Top: {horrorCharacter.ft.playerTop}");
+            Console.WriteLine($"Pants: {horrorCharacter.ft.playerPants}\n");
 
             Console.WriteLine($"Physical Traits: ");
-            Console.WriteLine($"Face Shape: {ft.faceShape}");
-            Console.WriteLine($"Hair Color: {ft.hairColor}");
-            Console.WriteLine($"Hairstyle: {ft.hairStyle}");
-            Console.WriteLine($"Skin Color: {ft.skinColor}");
-            Console.WriteLine($"Eye Color: {ft.eyeColor}");
-            Console.WriteLine($"Height: {ft.height}");
-            Console.WriteLine($"Weight: {ft.weight}\n");
+            Console.WriteLine($"Face Shape: {horrorCharacter.ft.faceShape}");
+            Console.WriteLine($"Hair Color: {horrorCharacter.ft.hairColor}");
+            Console.WriteLine($"Hairstyle: {horrorCharacter.ft.hairStyle}");
+            Console.WriteLine($"Skin Color: {horrorCharacter.ft.skinColor}");
+            Console.WriteLine($"Eye Color: {horrorCharacter.ft.eyeColor}");
+            Console.WriteLine($"Height: {horrorCharacter.ft.height}");
+            Console.WriteLine($"Weight: {horrorCharacter.ft.weight}\n");
 
             Console.WriteLine("Accessories: ");
-            Console.WriteLine($"Hat: {ft.hat}");
-            Console.WriteLine($"Glasses: {ft.glasses}");
-            Console.WriteLine($"Necklace: {ft.necklace}");
-            Console.WriteLine($"Bracelet: {ft.bracelet}");
-            Console.WriteLine($"Anklet: {ft.anklet}\n");
+            Console.WriteLine($"Hat: {horrorCharacter.ft.hat}");
+            Console.WriteLine($"Glasses: {horrorCharacter.ft.glasses}");
+            Console.WriteLine($"Necklace: {horrorCharacter.ft.necklace}");
+            Console.WriteLine($"Bracelet: {horrorCharacter.ft.bracelet}");
+            Console.WriteLine($"Anklet: {horrorCharacter.ft.anklet}\n");
 
             Console.WriteLine($"Character's Unique Traits: ");
-            Console.WriteLine($"Hunter Skill: {ft.hunterSkill}");
-            Console.WriteLine($"Survivor Skill: {ft.survivorSkill}");
-            Console.WriteLine($"Weapon: {ft.weapon}");
-            Console.WriteLine($"Ability: {ft.ability}");
-            Console.WriteLine($"Buff:{ft.buff}");
-            Console.WriteLine($"Scar: {ft.scar}\n");
+            Console.WriteLine($"Hunter Skill: {horrorCharacter.ft.hunterSkill}");
+            Console.WriteLine($"Survivor Skill: {horrorCharacter.ft.survivorSkill}");
+            Console.WriteLine($"Weapon: {horrorCharacter.ft.weapon}");
+            Console.WriteLine($"Ability: {horrorCharacter.ft.ability}");
+            Console.WriteLine($"Buff: {horrorCharacter.ft.buff}");
+            Console.WriteLine($"Scar: {horrorCharacter.ft.scar}\n");
 
             Console.WriteLine("\nCharacter's Stats:");
-            Console.WriteLine($"Health: {ft.health}");
-            Console.WriteLine($"Strength: {ft.strength}");
-            Console.WriteLine($"Stamina: {ft.stamina}");
-            Console.WriteLine($"Speed: {ft.speed}");
-            Console.WriteLine($"Energy: {ft.energy}");
+            Console.WriteLine($"Health: {horrorCharacter.ft.health}");
+            Console.WriteLine($"Strength: {horrorCharacter.ft.strength}");
+            Console.WriteLine($"Stamina: {horrorCharacter.ft.stamina}");
+            Console.WriteLine($"Speed: {horrorCharacter.ft.speed}");
+            Console.WriteLine($"Energy: {horrorCharacter.ft.energy}");
 
 
             try
@@ -154,9 +127,8 @@ namespace CharacterCreation
                         Menu.MainMenu();
                         break;
                     case 2:
-                        PrintAll();
+                        PrintAll(horrorCharacter);
                         break;
-
                 }
             }
             catch (Exception ex)

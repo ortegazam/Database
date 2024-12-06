@@ -87,7 +87,10 @@ namespace CharacterCreation
             Console.WriteLine("Zam Ortega: Leader, programmer, pabuhat");
             Console.WriteLine("Jomar Cruz: Documentation");
             Console.WriteLine("Ethan Raphael Concepcion: Documentation");
-
+            Console.WriteLine("Luis Rivera: Pancit Canton");
+            Console.WriteLine("Reyn Penus: Certified Pancit Canton");
+            Console.WriteLine("Raven Villanueva");
+            Console.WriteLine("Emmanuel Caraig");
             Console.WriteLine("\nGo back to main menu?");
             Console.WriteLine("(1) YES");
             Console.WriteLine("(2) NO");

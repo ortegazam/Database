@@ -37,7 +37,7 @@ namespace CharacterCreation
             Console.WriteLine("Wolf Cut");
             Console.WriteLine("Long Hair");
         }
-        public void hairColor()
+        public static void hairColor()
         {
             Console.WriteLine("Red");
             Console.WriteLine("Black");
@@ -45,7 +45,7 @@ namespace CharacterCreation
             Console.WriteLine("Orange");
             Console.WriteLine("Blonde");
         }
-        public void skinColor()
+        public static void skinColor()
         {
             Console.WriteLine("Brown");
             Console.WriteLine("Black");
@@ -53,7 +53,7 @@ namespace CharacterCreation
             Console.WriteLine("Yellow");
             Console.WriteLine("Porcelain");
         }
-        public void eyeColor()
+        public static void eyeColor()
         {
             Console.WriteLine("Brown");
             Console.WriteLine("Black");
@@ -61,7 +61,7 @@ namespace CharacterCreation
             Console.WriteLine("Blue");
             Console.WriteLine("Green");
         }
-        public void scar()
+        public static void scar()
         {
             Console.WriteLine("Eye Scar");
             Console.WriteLine("Leg Scar");
@@ -69,7 +69,7 @@ namespace CharacterCreation
             Console.WriteLine("Chest Scar");
             Console.WriteLine("Shoulder Scar");
         }
-        public void hunterSkills()
+        public static void hunterSkills()
         {
             Console.WriteLine($"\n{"Doppelganger:",-5}You can pretend as one of the survivors whom you killed before within a brief period.");
             Console.WriteLine($"{"Poltergeist:",-5} You can be invisible for a brief period. Your steps will still be heard by the survivors.");
@@ -77,7 +77,7 @@ namespace CharacterCreation
             Console.WriteLine($"{"Phantom:",-5} Your steps will not be heard by the survivors in a limited time. ");
             Console.WriteLine($"{"Assassin:",-5} Once you spot a survivor, you can kill them despite out of range. ");
         }
-        public void survivorSkills()
+        public static void survivorSkills()
         {
             Console.WriteLine($"\nAce In The Hole: You can use any of ‘Blood Pact,’ ‘Circle of Healing,’ Borrowed Time, Critical Thinking.");
             Console.WriteLine($"Blood Pact: You can reduce the Hunter’s health upon casting.");
@@ -85,7 +85,7 @@ namespace CharacterCreation
             Console.WriteLine($"Borrowed Time: You can go back in time, where you are still not eaten by the hunter.");
             Console.WriteLine($"Critical Thinking: You will be given a hint of where to use the clues you currently have.");
         }
-        public void weapon()
+        public static void weapon()
         {
             Console.WriteLine($"\nRifle: A gun that can slow down the hunter.");
             Console.WriteLine($"Machete: A weapon that can scratch the hunter.");
@@ -94,7 +94,7 @@ namespace CharacterCreation
             Console.WriteLine($"Bow and Arrow: Left by an archer who lost their life inside the mansion.");
             Console.WriteLine($"Grenade Launcher: A weapon that may be able to kill the hunter.");
         }
-        public void ability()
+        public static void ability()
         {
             Console.WriteLine($"Healing: This ability allows the player to recover half of their current health.");
             Console.WriteLine($"Sword Wielder: The player will be able to efficiently wield a sword once obtained.");
@@ -102,7 +102,7 @@ namespace CharacterCreation
             Console.WriteLine($"Clairvoyance: The player will be notified if the enemy’s nearby.");
             Console.WriteLine($"Silent Steps: The player will be able to escape the enemy’s range of sight unnoticed.");
         }
-        public void shape()
+        public static void shape()
         {
             Console.WriteLine("Triangular");
             Console.WriteLine("Oval");
@@ -110,7 +110,7 @@ namespace CharacterCreation
             Console.WriteLine("Square");
             Console.WriteLine("Diamond");
         }
-        public void expression()
+        public static void expression()
         {
             Console.WriteLine("Angry");
             Console.WriteLine("Sad");
@@ -118,7 +118,7 @@ namespace CharacterCreation
             Console.WriteLine("Calm");
             Console.WriteLine("Confused");
         }
-        public void heights()
+        public static void heights()
         {
             Console.WriteLine("Short");
             Console.WriteLine("Average");
@@ -126,7 +126,7 @@ namespace CharacterCreation
             Console.WriteLine("Dwarf");
             Console.WriteLine("Giant");
         }
-        public void weights()
+        public static void weights()
         {
             Console.WriteLine("Skinny");
             Console.WriteLine("Slim");
@@ -135,7 +135,7 @@ namespace CharacterCreation
             Console.WriteLine("Fat");
 
         }
-        public void armors()
+        public static void armors()
         {
             Console.WriteLine($"Sturdy Armor: ‘Left by a knight from an unknown era. Does it mean the mansion’s already up by then?’ The hunter will not be able to eat you the first time. Make sure they do not have a second time. ");
             Console.WriteLine($"Leather Armor: ‘Made from an animal’s skin, the animal’s stench remains.’ The hunter might be able to eat you deliciously once you wear this within their radius. However, they might also think it is one of their emergency foods: the hounds. \r\n");
@@ -144,7 +144,7 @@ namespace CharacterCreation
             Console.WriteLine($"Cloth Armor: Filled with blood, the previous owner’s wrath against the hunters remained inside the armor. Upon wearing this, you will be able to use blood pact occasionally, but with a health rebound. ");
 
         }
-        public void attitudes()
+        public static void attitudes()
         {
             Console.WriteLine("\nPlease choose your attitude:\n");
             Console.WriteLine($"\nWistful: Because of the sudden accident, you miss your family and friends. No debuffs or buffs will commence upon selection. ");

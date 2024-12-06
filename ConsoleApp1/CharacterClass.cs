@@ -6,11 +6,13 @@ namespace CharacterCreation
     {
         public Options op { get; set; }
         public features ft { get; set; }
+        public CharacSheet cs { get; set; }
 
         public CharacterClass()
         {
             this.op = new Options();
             this.ft = new features();
+            this.cs = new CharacSheet();
         }
 
         public override void Scream()

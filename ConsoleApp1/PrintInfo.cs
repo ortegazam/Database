@@ -1,7 +1,22 @@
 ﻿namespace CharacterCreation
 {
+
+    public struct GameStruc
+    {
+        public string playerName { get; set; }
+        public int playerAge { get; set; }
+        public string playerGender { get; set; }
+
+        public GameStruc(string playerName, int playerAge, string playerGender)
+        {
+            this.playerName = playerName;
+            this.playerAge = playerAge;
+            this.playerGender = playerGender;
+        } 
+    }
     public class features
     {
+         
         public string playerName { get; set; }
         public int playerAge { get; set; }
         public string playerGender { get; set; }

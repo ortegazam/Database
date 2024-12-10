@@ -116,18 +116,18 @@ namespace CharacterCreation
 
             bool ph = false;
 
-            while (!ph)
-            {
-                try
-                {
-                    Save();
-                    Edit();
-                }
+         //   while (!ph)
+         //   {
+          //      try
+          //      {
+          //          Save();
+         //           Edit();
+          //      }
 
-                catch (ArgumentException ex) { }
-            }
+         //       catch (ArgumentException ex) { }
+         //   }
 
-            try
+          try
             {
 
                 Console.WriteLine("\nGo back to main menu?");

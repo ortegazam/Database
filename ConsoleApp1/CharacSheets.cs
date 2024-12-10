@@ -14,7 +14,7 @@ namespace CharacterCreation
             bool ph = false;
             while (!ph)
             { 
-                    Console.WriteLine("Please enter your name (Alphanumeric, max 20 characters): ");
+                    Console.WriteLine("Please enter your name (Alphanumeric, minimun of 7 characters and maximum of 20 characters): ");
                     string name = Console.ReadLine();
                     horrorCharacter.ft.PlayerName = InputValidator.Validation(name);
                     ph = true;
@@ -22,7 +22,6 @@ namespace CharacterCreation
                     Console.WriteLine($"\nWelcome, {horrorCharacter.ft.PlayerName}! You're reaching your death.\n");
                
                     Age(horrorCharacter);
-  
             }
         }
         public void Age(CharacterClass horrorCharacter)
@@ -41,26 +40,31 @@ namespace CharacterCreation
                     {
                         case "1":
                             horrorCharacter.ft.PlayerAge = "Child";
+                            Gender(horrorCharacter);
                             ph = true;
                             break;
 
                         case "2":
                             horrorCharacter.ft.PlayerAge = "Teenager";
+                            Gender(horrorCharacter);
                             ph = true;
                             break;
 
                         case "3":
                             horrorCharacter.ft.PlayerAge = "Adult";
+                            Gender(horrorCharacter);
                             ph = true;
                             break;
 
                         case "4":
                             horrorCharacter.ft.PlayerAge = "Middle";
+                            Gender(horrorCharacter);
                             ph = true;
                             break;
 
                         case "5":
                             horrorCharacter.ft.PlayerAge = "Old";
+                            Gender(horrorCharacter);
                             ph = true;
                             break;
 
@@ -91,27 +95,27 @@ namespace CharacterCreation
                     switch (horrorCharacter.ft.PlayerGender)
                     {
                         case "1":
-                            ft.PlayerGender = "Female";
+                            horrorCharacter.ft.PlayerGender = "Female";
                             GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "2":
-                            ft.PlayerGender = "Male";
+                            horrorCharacter.ft.PlayerGender = "Male";
                             GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "3":
-                            ft.PlayerGender = "Nonbinary";
+                            horrorCharacter.ft.PlayerGender = "Nonbinary";
                             GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "4":
-                            ft.PlayerGender = "Prefer not to say";
+                            horrorCharacter.ft.PlayerGender = "Prefer not to say";
                             GameType(horrorCharacter);
                             placeholder = true;
                             break;
                         case "5":
-                            ft.PlayerGender = "Others";
+                            horrorCharacter.ft.PlayerGender = "Others";
                             GameType(horrorCharacter);
                             placeholder = true;
                             break;
@@ -137,10 +141,10 @@ namespace CharacterCreation
                 try
                 {
                     Console.WriteLine($"Please choose your TEAM TYPE, {horrorCharacter.ft.PlayerName}!");
-                    Console.WriteLine($"\n{"[1]",-5} Hunter: Hunters are known for eating their prey, claws gritting against their prey’s skin.");
-                    Console.WriteLine($"{"[2]",-5} Survivor: You will search for clues regarding the mysterious accident that led you here, undiscovered by the enemy\n");
+                    Console.WriteLine($"{"[1]",-5} | Hunter: Hunters are known for eating their prey, claws gritting against their prey’s skin.");
+                    Console.WriteLine($"{"[2]",-5} | Survivor: You will search for clues regarding the mysterious accident, undiscovered by the enemy.\n");
 
-                    char choice = Convert.ToChar(Console.ReadLine().ToUpper());
+                    char choice = Convert.ToChar(Console.ReadLine());
 
                     switch (choice)
                     {
@@ -184,27 +188,27 @@ namespace CharacterCreation
                     switch (choices)
                     {
                         case "1":
-                            ft.HunterSkill = "Doppelganger";
+                            horrorCharacter.ft.HunterSkill = "Doppelganger";
                             Weapon(horrorCharacter);
                             ph = true;
                             break;
                         case "2":
-                            ft.HunterSkill = "Poltergeist";
+                            horrorCharacter.ft.HunterSkill = "Poltergeist";
                             Weapon(horrorCharacter);
                             ph = true;
                             break;
                         case "3":
-                            ft.HunterSkill = "Trickster";
+                            horrorCharacter.ft.HunterSkill = "Trickster";
                             Weapon(horrorCharacter);
                             ph = true;
                             break;
                         case "4":
-                            ft.HunterSkill = "Phantom";
+                            horrorCharacter.ft.HunterSkill = "Phantom";
                             Weapon(horrorCharacter);
                             ph = true;
                             break;
                         case "5":
-                            ft.HunterSkill = "Assassin";
+                            horrorCharacter.ft.HunterSkill = "Assassin";
                             Weapon(horrorCharacter);
                             ph = true;
                             break;
@@ -237,27 +241,27 @@ namespace CharacterCreation
                     switch (horrorCharacter.ft.SurvivorSkill)
                     {
                         case "1":
-                            ft.SurvivorSkill = "Ace in the Hole";
+                            horrorCharacter.ft.SurvivorSkill = "Ace in the Hole";
                             Weapon(horrorCharacter);
                             ph = true;
                             break;
                         case "2":
-                            ft.SurvivorSkill = "Blood Pact";
+                            horrorCharacter.ft.SurvivorSkill = "Blood Pact";
                             Weapon(horrorCharacter);
                             ph = true;
                             break;
                         case "3":
-                            ft.SurvivorSkill = "Circle of Healing";
+                            horrorCharacter.ft.SurvivorSkill = "Circle of Healing";
                             Weapon(horrorCharacter);
                             ph = true;
                             break;
                         case "4":
-                            ft.SurvivorSkill = "Borrowed Time";
+                            horrorCharacter.ft.SurvivorSkill = "Borrowed Time";
                             Weapon(horrorCharacter);
                             ph = true;
                             break;
                         case "5":
-                            ft.SurvivorSkill = "Critical Thinking";
+                            horrorCharacter.ft.SurvivorSkill = "Critical Thinking";
                             Weapon(horrorCharacter);
                             ph = true;
                             break;
@@ -289,27 +293,27 @@ namespace CharacterCreation
                     switch (horrorCharacter.ft.Weapon)
                     {
                         case "1":
-                            ft.Weapon = "Rifle";
+                            horrorCharacter.ft.Weapon = "Rifle";
                             Abilities(horrorCharacter);
                             ph = true;
                             break;
                         case "2":
-                            ft.Weapon = "Machete";
+                            horrorCharacter.ft.Weapon = "Machete";
                             Abilities(horrorCharacter);
                             ph = true;
                             break;
                         case "3":
-                            ft.Weapon = "Axe";
+                            horrorCharacter.ft.Weapon = "Axe";
                             Abilities(horrorCharacter);
                             ph = true;
                             break;
                         case "4":
-                            ft.Weapon = "Pistol";
+                            horrorCharacter.ft.Weapon = "Pistol";
                             Abilities(horrorCharacter);
                             ph = true;
                             break;
                         case "5":
-                            ft.Weapon = "Bow and Arrow";
+                            horrorCharacter.ft.Weapon = "Bow and Arrow";
                             Abilities(horrorCharacter);
                             ph = true;
                             break;
@@ -326,7 +330,6 @@ namespace CharacterCreation
         }
         public void Abilities(CharacterClass horrorCharacter)
         {
-            Stats(horrorCharacter);
      
             bool ph = false;
 
@@ -343,28 +346,28 @@ namespace CharacterCreation
                     switch (horrorCharacter.ft.Ability)
                     {
                         case "1":
-                            ft.Ability = "Healing";
-                            Abilities(horrorCharacter);
+                            horrorCharacter.ft.Ability = "Healing";
+                            Stats(horrorCharacter);
                             ph = true;
                             break;
                         case "2":
-                            ft.Ability = "Sword Wielder";
-                            Abilities(horrorCharacter);
+                            horrorCharacter.ft.Ability = "Sword Wielder";
+                            Stats(horrorCharacter);
                             ph = true;
                             break;
                         case "3":
-                            ft.Ability = "Marksman";
-                            Abilities(horrorCharacter);
+                            horrorCharacter.ft.Ability = "Marksman";
+                            Stats(horrorCharacter);
                             ph = true;
                             break;
                         case "4":
-                            ft.Ability = "Clairvoyance";
-                            Abilities(horrorCharacter);
+                            horrorCharacter.ft.Ability = "Clairvoyance";
+                            Stats(horrorCharacter);
                             ph = true;
                             break;
                         case "5":
-                            ft.Ability = "Silent Steps";
-                            Abilities(horrorCharacter);
+                            horrorCharacter.ft.Ability = "Silent Steps";
+                            Stats(horrorCharacter);
                             ph = true;
                             break;
                         default:
@@ -451,23 +454,23 @@ namespace CharacterCreation
                     switch (horrorCharacter.ft.HairStyle)
                     {
                         case "1":
-                            ft.HairStyle = "Clean Cut";
+                            horrorCharacter.ft.HairStyle = "Clean Cut";
                             break;
 
                         case "2":
-                            ft.HairStyle = "Buzz Cut";                      
+                            horrorCharacter.ft.HairStyle = "Buzz Cut";                      
                             break;
 
                         case "3":
-                            ft.HairStyle = "Fade Cut";                       
+                            horrorCharacter.ft.HairStyle = "Fade Cut";                       
                             break;
 
                         case "4":
-                            ft.HairStyle = "Wolf Cut";               
+                            horrorCharacter.ft.HairStyle = "Wolf Cut";               
                             break;
 
                         case "5":
-                            ft.HairStyle = "Long Hair";
+                            horrorCharacter.ft.HairStyle = "Long Hair";
                             break;
 
                         default:
@@ -482,23 +485,23 @@ namespace CharacterCreation
                     switch (horrorCharacter.ft.HairColor)
                     {
                         case "1":
-                            ft.HairColor = "Red";
+                            horrorCharacter.ft.HairColor = "Red";
                             break;
 
                         case "2":
-                            ft.HairColor = "Black";
+                            horrorCharacter.ft.HairColor = "Black";
                             break;
 
                         case "3":
-                            ft.HairColor = "Brown";
+                            horrorCharacter.ft.HairColor = "Brown";
                             break;
 
                         case "4":
-                            ft.HairColor = "Orange";
+                            horrorCharacter.ft.HairColor = "Orange";
                             break;
 
                         case "5":
-                            ft.HairColor = "Blonde";
+                            horrorCharacter.ft.HairColor = "Blonde";
                             break;
 
                         default:
@@ -513,23 +516,23 @@ namespace CharacterCreation
                     switch (horrorCharacter.ft.SkinColor)
                     {
                         case "1":
-                            ft.HairColor = "Brown";
+                            horrorCharacter.ft.HairColor = "Brown";
                             break;
 
                         case "2":
-                            ft.HairColor = "Black";
+                            horrorCharacter.ft.HairColor = "Black";
                             break;
 
                         case "3":
-                            ft.HairColor = "White";
+                            horrorCharacter.ft.HairColor = "White";
                             break;
 
                         case "4":
-                            ft.HairColor = "Yellow";
+                            horrorCharacter.ft.HairColor = "Yellow";
                             break;
 
                         case "5":
-                            ft.HairColor = "Porcelain";
+                            horrorCharacter.ft.HairColor = "Porcelain";
                             break;
 
                         default:
@@ -543,23 +546,23 @@ namespace CharacterCreation
                     switch (horrorCharacter.ft.EyeColor)
                     {
                         case "1":
-                            ft.EyeColor = "Brown";
+                            horrorCharacter.ft.EyeColor = "Brown";
                             break;
 
                         case "2":
-                            ft.EyeColor = "Black";
+                            horrorCharacter.ft.EyeColor = "Black";
                             break;
 
                         case "3":
-                            ft.EyeColor = "Red";
+                            horrorCharacter.ft.EyeColor = "Red";
                             break;
 
                         case "4":
-                            ft.EyeColor = "Blue";
+                            horrorCharacter.ft.EyeColor = "Blue";
                             break;
 
                         case "5":
-                            ft.EyeColor = "Green";
+                            horrorCharacter.ft.EyeColor = "Green";
                             break;
 
                         default:
@@ -574,23 +577,23 @@ namespace CharacterCreation
                     switch (horrorCharacter.ft.Scar)
                     {
                         case "1":
-                            ft.Scar = "Eye Scar";
+                            horrorCharacter.ft.Scar = "Eye Scar";
                             break;
 
                         case "2":
-                            ft.Scar = "Leg Scar";
+                            horrorCharacter.ft.Scar = "Leg Scar";
                             break;
 
                         case "3":
-                            ft.Scar = "Arm Scar";
+                            horrorCharacter.ft.Scar = "Arm Scar";
                             break;
 
                         case "4":
-                            ft.Scar = "Chest Scar";
+                            horrorCharacter.ft.Scar = "Chest Scar";
                             break;
 
                         case "5":
-                            ft.Scar = "Shoulder Scar";
+                            horrorCharacter.ft.Scar = "Shoulder Scar";
                             break;
 
                         default:

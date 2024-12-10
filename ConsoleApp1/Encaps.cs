@@ -4,99 +4,99 @@
     public struct GameStruc
     {
         public string playerName { get; set; }
-        public int playerAge { get; set; }
+        public string playerAge { get; set; }
         public string playerGender { get; set; }
 
-        public GameStruc(string playerName, int playerAge, string playerGender)
+        public GameStruc(string playerName, string playerAge, string playerGender)
         {
             this.playerName = playerName;
             this.playerAge = playerAge;
             this.playerGender = playerGender;
         } 
     }
-    public class features
+    public class UserFeatures
     {
          
-        public string playerName { get; set; }
-        public int playerAge { get; set; }
-        public string playerGender { get; set; }
-        public string teamType { get; set; }
-        public string hunterSkill { get; set; }
-        public string survivorSkill { get; set; }
-        public string weapon { get; set; }
-        public string ability { get; set; }
-        public string hairStyle { get; set; }
-        public string scar { get; set; }
-        public string faceShape { get; set; }
-        public string faceExpression { get; set; }
-        public string hairColor { get; set; }
-        public string skinColor { get; set; }
-        public string eyeColor { get; set; }
-        public string playerTop { get; set; }
-        public string playerPants { get; set; }
-        public string height { get; set; }
-        public string weight { get; set; }
-        public string hat { get; set; }
-        public string buff { get; set; }
-        public string glasses { get; set; }
-        public string necklace { get; set; }
-        public string bracelet { get; set; }
-        public string anklet { get; set; }
-        public string armor { get; set; }
-        public string attitude { get; set; }
-        public int stats { get; set; }
-        public int health { get; set; }
-        public int strength { get; set; }
-        public int stamina { get; set; }
-        public int speed { get; set; }
-        public int energy { get; set; }
-        public bool boost { get; set; }
+        public string PlayerName { get; set; }
+        public string PlayerAge { get; set; }
+        public string PlayerGender { get; set; }
+        public string TeamType { get; set; }
+        public string HunterSkill { get; set; }
+        public string SurvivorSkill { get; set; }
+        public string Weapon { get; set; }
+        public string Ability { get; set; }
+        public string HairStyle { get; set; }
+        public string Scar { get; set; }
+        public string FaceShape { get; set; }
+        public string FaceExpression { get; set; }
+        public string HairColor { get; set; }
+        public string SkinColor { get; set; }
+        public string EyeColor { get; set; }
+        public string PlayerTop { get; set; }
+        public string PlayerPants { get; set; }
+        public string Height { get; set; }
+        public string Weight { get; set; }
+        public string Buff { get; set; }
+        public static string Hat { get; set; }
+        public static string Glasses { get; set; }
+        public static string Necklace { get; set; }
+        public static string Bracelet { get; set; }
+        public static string Anklet { get; set; }
+        public string Armor { get; set; }
+        public string Attitude { get; set; }
+        public int Stats { get; set; }
+        public int Health { get; set; }
+        public int Strength { get; set; }
+        public int Stamina { get; set; }
+        public int Speed { get; set; }
+        public int Energy { get; set; }
+        public bool Boost { get; set; }
 
 
-        public features(string name, string gender, int age, int stats, string armor,
+        public UserFeatures(string name, string gender, string age, int stats, string armor,
             string anklet, string team, string hunter, string survivor, string weapon, string ability, bool boost,
             int health, int speed, int energy, int stamina, string attitude, string lace,
-            string bracelet, string pants, string top, string glasses, int strength,
+            string bracelet, string top, string glasses, int strength,
             string scar, string style, string shape, string expression, string hat, string color, string skin,
             string eyes, string height, string weight)
         {
-            this.playerName = name;
-            this.playerAge = age;
-            this.playerGender = gender;
-            this.teamType = team;
-            this.survivorSkill = survivor;
-            this.hunterSkill = hunter;
-            this.weapon = weapon;
-            this.ability = ability;
-            this.hairStyle = style;
-            this.hairColor = color;
-            this.scar = scar;
-            this.faceShape = shape;
-            this.faceExpression = expression;
-            this.skinColor = skin;
-            this.eyeColor = eyes;
-            this.playerTop = top;
-            this.height = height;
-            this.weight = weight;
-            this.hat = hat;
-            this.glasses = glasses;
-            this.necklace = lace;
-            this.bracelet = bracelet;
-            this.anklet = anklet;
-            this.armor = armor;
-            this.attitude = attitude;
-            this.stats = stats;
-            this.health = health;
-            this.strength = strength;
-            this.stamina = stamina;
-            this.speed = speed;
-            this.energy = energy;
-            this.boost = boost;
+            this.PlayerName = name;
+            this.PlayerAge = age;
+            this.PlayerGender = gender;
+            this.TeamType = team;
+            this.SurvivorSkill = survivor;
+            this.HunterSkill = hunter;
+            this.Weapon = weapon;
+            this.Ability = ability;
+            this.HairStyle = style;
+            this.HairColor = color;
+            this.Scar = scar;
+            this.FaceShape = shape;
+            this.FaceExpression = expression;
+            this.SkinColor = skin;
+            this.EyeColor = eyes;
+            this.PlayerTop = top;
+            this.Height = height;
+            this.Weight = weight;
+            UserFeatures.Hat = hat;
+            UserFeatures.Glasses = glasses;
+            UserFeatures.Necklace = lace;
+            UserFeatures.Bracelet = bracelet;
+            UserFeatures.Anklet = anklet;
+            this.Armor = armor;
+            this.Attitude = attitude;
+            this.Stats = stats;
+            this.Health = health;
+            this.Strength = strength;
+            this.Stamina = stamina;
+            this.Speed = speed;
+            this.Energy = energy;
+            this.Boost = boost;
 
            
         }
 
-        public features()
+        public UserFeatures()
         {
         }
     }

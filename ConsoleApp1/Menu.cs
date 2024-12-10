@@ -23,6 +23,7 @@ namespace CharacterCreation
 
             while (!placeholder)
             {
+                
                 horrorCharacter.Introduction();
                 
 
@@ -37,26 +38,32 @@ namespace CharacterCreation
                             break;
                         case 2:
                             choices.CurrentGame();
+                            placeholder = true;
                             break;
                         case 3:
                             choices.CampaignMode();
+                            placeholder = true;
                             break;
                         case 4:
                             choices.Credits();
+                            placeholder = true;
                             break;
                         case 5:
                             Console.WriteLine("Press any key to confirm exit: ");
                             Console.ReadKey();
                             Environment.Exit(0);
+                            placeholder = true;
                             break;
                         default:
-                            throw new Exception("GG sayo, par. Mali input mo.\n");
-
+                            throw new Exception("Invalid input. Please try again!");
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error: " + ex.Message);
+                    Console.WriteLine("Press any key to continue.");
+                    Console.ReadKey();
+                    Console.Clear();
                 }
 
             }

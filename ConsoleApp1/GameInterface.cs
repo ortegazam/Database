@@ -5,7 +5,7 @@ namespace CharacterCreation
     public interface saveOrEdit
     {
         public Options op { get; set; }
-        public features ft { get; set; }
+        public UserFeatures ft { get; set; }
         public CharacSheetsCon cs { get; set; }
         public GameStruc gs { get; set; }
 

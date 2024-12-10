@@ -5,26 +5,26 @@ namespace CharacterCreation
     public abstract class Characters : saveOrEdit
     {
         public Options op { get; set; }
-        public features ft { get; set; }
+        public UserFeatures ft { get; set; }
         public CharacSheetsCon cs { get; set; }
         public GameStruc gs { get; set; }
 
         public Characters()
         {
             this.op = new Options();
-            this.ft = new features();
+            this.ft = new UserFeatures();
         }
 
         public abstract void Introduction();
 
         public void Save()
         {
-            Console.WriteLine("SAVEEEE!");
+            Console.WriteLine("Save character?");
         }
 
         public void Edit()
         {
-            Console.WriteLine("EDITTTTT!");
+            Console.WriteLine("Edit character?");
         }
     }
 }

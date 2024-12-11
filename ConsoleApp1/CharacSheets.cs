@@ -516,23 +516,23 @@ namespace CharacterCreation
                     switch (horrorCharacter.ft.SkinColor)
                     {
                         case "1":
-                            horrorCharacter.ft.HairColor = "Brown";
+                            horrorCharacter.ft.SkinColor = "Brown";
                             break;
 
                         case "2":
-                            horrorCharacter.ft.HairColor = "Black";
+                            horrorCharacter.ft.SkinColor = "Black";
                             break;
 
                         case "3":
-                            horrorCharacter.ft.HairColor = "White";
+                            horrorCharacter.ft.SkinColor = "White";
                             break;
 
                         case "4":
-                            horrorCharacter.ft.HairColor = "Yellow";
+                            horrorCharacter.ft.SkinColor = "Yellow";
                             break;
 
                         case "5":
-                            horrorCharacter.ft.HairColor = "Porcelain";
+                            horrorCharacter.ft.SkinColor = "Porcelain";
                             break;
 
                         default:
@@ -600,50 +600,174 @@ namespace CharacterCreation
                             throw new ArgumentException("Invalid input. Try again!");
                     }
 
+                  
                     Console.WriteLine("\nPlease choose your face shape:\n");
                     Options.Shape();
 
                     horrorCharacter.ft.FaceShape = Console.ReadLine();
 
+                    switch (horrorCharacter.ft.FaceShape)
+                    {
+                        case "1":
+                            horrorCharacter.ft.FaceShape = "Triangular";
+                            break;
+                        case "2":
+                            horrorCharacter.ft.FaceShape = "Oval";
+                            break;
+                        case "3":
+                            horrorCharacter.ft.FaceShape = "Circle";
+                            break;
+                        case "4":
+                            horrorCharacter.ft.FaceShape = "Square";
+                            break;
+                        case "5":
+                            horrorCharacter.ft.FaceShape = "Diamond";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
 
                     Console.WriteLine("\nPlease choose your expression:\n");
                     Options.Expression();
                     horrorCharacter.ft.FaceExpression = Console.ReadLine();
 
+                    switch (horrorCharacter.ft.FaceExpression)
+                    {
+                        case "1":
+                            horrorCharacter.ft.FaceExpression = "Angry";
+                            break;
+                        case "2":
+                            horrorCharacter.ft.FaceExpression = "Sad";
+                            break;
+                        case "3":
+                            horrorCharacter.ft.FaceExpression = "Smile";
+                            break;
+                        case "4":
+                            horrorCharacter.ft.FaceExpression = "Calm";
+                            break;
+                        case "5":
+                            horrorCharacter.ft.FaceExpression = "Confused";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
 
                     Console.WriteLine("\nPlease choose your height:\n");
                     Options.Heights();
                     horrorCharacter.ft.Height = Console.ReadLine();
 
+                    switch (horrorCharacter.ft.Height)
+                    {
+                        case "1":
+                            horrorCharacter.ft.Height = "Short";
+                            break;
+                        case "2":
+                            horrorCharacter.ft.Height = "Average";
+                            break;
+                        case "3":
+                            horrorCharacter.ft.Height = "Tall";
+                            break;
+                        case "4":
+                            horrorCharacter.ft.Height = "Dwarf";
+                            break;
+                        case "5":
+                            horrorCharacter.ft.Height = "Giant";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
 
                     Console.WriteLine("\nPlease choose your weight:\n");
                     Options.Weights();
                     horrorCharacter.ft.Weight = Console.ReadLine();
 
+                    switch (horrorCharacter.ft.Weight)
+                    {
+                        case "1":
+                            horrorCharacter.ft.Weight = "Skinny";
+                            break;
+                        case "2":
+                            horrorCharacter.ft.Weight = "Slim";
+                            break;
+                        case "3":
+                            horrorCharacter.ft.Weight = "Fit";
+                            break;
+                        case "4":
+                            horrorCharacter.ft.Weight = "Plump";
+                            break;
+                        case "5":
+                            horrorCharacter.ft.Weight = "Fat";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
+
                     Clothing(horrorCharacter);
 
                     ph = true;
                 }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                catch (ArgumentException ex) { Console.WriteLine(ex.Message); }
             }
         }
         public void Clothing(CharacterClass horrorCharacter)
         {
+            bool ph = false;
+            while (!ph)
+            {
+                try
+                {
+                    Console.WriteLine("\nPlease choose your clothes:\n");
+                    Options.TopClothes();
+                    horrorCharacter.ft.PlayerTop = Console.ReadLine();
 
+                    switch (horrorCharacter.ft.PlayerTop)
+                    {
+                        case "1":
+                            horrorCharacter.ft.PlayerTop = "Shirt";
+                            break;
+                        case "2":
+                            horrorCharacter.ft.PlayerTop = "Jacket";
+                            break;
+                        case "3":
+                            horrorCharacter.ft.PlayerTop = "Long Sleeves";
+                            break;
+                        case "4":
+                            horrorCharacter.ft.PlayerTop = "Dress";
+                            break;
+                        case "5":
+                            horrorCharacter.ft.PlayerTop = "Coat";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
+                    Options.PantsClothes();
+                    horrorCharacter.ft.PlayerPants = Console.ReadLine();
 
-            Console.WriteLine("\nPlease choose your clothes:\n");
-            Options.TopClothes();
-            horrorCharacter.ft.PlayerTop = Console.ReadLine();
-
-            Options.PantsClothes();
-            horrorCharacter.ft.PlayerPants = Console.ReadLine();
-
-            Accessories(horrorCharacter);
+                    switch (horrorCharacter.ft.PlayerPants)
+                    {
+                        case "1":
+                            horrorCharacter.ft.PlayerPants = "Cargo";
+                            break;
+                        case "2":
+                            horrorCharacter.ft.PlayerPants = "Shorts";
+                            break;
+                        case "3":
+                            horrorCharacter.ft.PlayerPants = "Jeans";
+                            break;
+                        case "4":
+                            horrorCharacter.ft.PlayerPants = "Leather Pants";
+                            break;
+                        case "5":
+                            horrorCharacter.ft.PlayerPants = "Khaki Pants";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
+                    Accessories(horrorCharacter);
+                }
+                catch (ArgumentException ex) { Console.WriteLine(ex.Message); }
+            }
         }
-
         public static void Accessories(CharacterClass horrorCharacter)
         {
 
@@ -665,13 +789,13 @@ namespace CharacterCreation
                         continue;  
                     }
 
-                    bool checker = (choice == 1) ? true : false;
+                    horrorCharacter.ft.accessories = (choice == 1) ? true : false;
 
-                    if (checker == true)
+                    if (horrorCharacter.ft.accessories == true)
                     {
                         AccessoriesTwo(horrorCharacter);
                     }
-                    if (checker == false)
+                    if (horrorCharacter.ft.accessories == false)
                     {
                         UserFeatures.Hat = "None";
                         UserFeatures.Glasses = "None";
@@ -679,7 +803,8 @@ namespace CharacterCreation
                         UserFeatures.Bracelet = "None";
                         UserFeatures.Anklet = "None";
 
-                        CharacSheetsCon.Armor(horrorCharacter);
+                        Armor(horrorCharacter);
+                        
                     }
                 }
 
@@ -688,53 +813,265 @@ namespace CharacterCreation
         }
         public static void AccessoriesTwo(CharacterClass horrorCharacter)
         {
-            try
+
+            bool ph = false;
+
+            while (!ph)
             {
-                Console.WriteLine("Please choose your hat:");
-                Options.Hats();
-
-                UserFeatures.Hat = Console.ReadLine();
-                switch (horrorCharacter.ft.Scar)
+                try
                 {
-                    case "1":
-                        UserFeatures.Hat = "Baseball Cap";
-                        break;
+                    Console.WriteLine("\nPlease choose your hat:");
+                    Options.Hats();
 
-                    case "2":
-                        UserFeatures.Hat = "Cowboy Hat";
-                        break;
+                    UserFeatures.Hat = Console.ReadLine();
 
-                    case "3":
-                        UserFeatures.Hat = "Fedora";
-                        break;
+                    switch (UserFeatures.Hat)
+                    {
+                        case "1":
+                            UserFeatures.Hat = "Baseball Cap";
+                            break;
 
-                    case "4":
-                        UserFeatures.Hat = "Bucket Hat";
-                        break;
+                        case "2":
+                            UserFeatures.Hat = "Cowboy Hat";
+                            break;
 
-                    case "5":
-                        UserFeatures.Hat = "None";
-                        break;
+                        case "3":
+                            UserFeatures.Hat = "Fedora";
+                            break;
 
-                    default:
-                        throw new ArgumentException("Invalid input. Try again!");
+                        case "4":
+                            UserFeatures.Hat = "Bucket Hat";
+                            break;
+
+                        case "5":
+                            UserFeatures.Hat = "None";
+                            break;
+
+                        default:
+                            throw new ArgumentException("Invalid input. Try again!");
+                    }
+
+                    Console.WriteLine("\nPlease choose your glasses:");
+                    Options.Glasses();
+
+                    UserFeatures.Glasses = Console.ReadLine();
+
+                    switch (UserFeatures.Glasses)
+                    {
+                        case "1":
+                            UserFeatures.Glasses = "Square";
+                            break;
+                        case "2":
+                            UserFeatures.Glasses = "Round";
+                            break;
+                        case "3":
+                            UserFeatures.Glasses = "Oval";
+                            break;
+                        case "4":
+                            UserFeatures.Glasses = "Sunglasses";
+                            break;
+                        case "5":
+                            UserFeatures.Glasses = "None";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input! Please try again.");
+                    }
+
+                    Console.WriteLine("\nPlease choose your necklace:");
+                    Options.Necklaces();
+
+                    UserFeatures.Necklace = Console.ReadLine();
+
+                    switch (UserFeatures.Necklace)
+                    {
+                        case "1":
+                            UserFeatures.Necklace = "Gold";
+                            break;
+                        case "2":
+                            UserFeatures.Necklace = "Silver";
+                            break;
+                        case "3":
+                            UserFeatures.Necklace = "Chain";
+                            break;
+                        case "4":
+                            UserFeatures.Necklace = "Diamond";
+                            break;
+                        case "5":
+                            UserFeatures.Necklace = "None";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input! Please try again.");
+                    }
+
+                    Console.WriteLine("\nPlease choose your bracelet:");
+                    Options.Bracelet();
+
+                    UserFeatures.Bracelet = Console.ReadLine();
+
+                    switch (UserFeatures.Bracelet)
+                    {
+                        case "1":
+                            UserFeatures.Bracelet = "Gold";
+                            break;
+                        case "2":
+                            UserFeatures.Bracelet = "Silver";
+                            break;
+                        case "3":
+                            UserFeatures.Bracelet = "Chain";
+                            break;
+                        case "4":
+                            UserFeatures.Bracelet = "Diamond";
+                            break;
+                        case "5":
+                            UserFeatures.Bracelet = "None";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input! Please try again.");
+                    }
+
+                    Console.WriteLine("\nPlease choose your anklet:");
+                    Options.Anklets();
+
+                    UserFeatures.Anklet = Console.ReadLine();
+
+                    switch (UserFeatures.Anklet)
+                    {
+                        case "1":
+                            UserFeatures.Anklet = "Charm Anklet";
+                            break;
+                        case "2":
+                            UserFeatures.Anklet = "Gold Anklet";
+                            break;
+                        case "3":
+                            UserFeatures.Anklet = "Beaded Anklet";
+                            break;
+                        case "4":
+                            UserFeatures.Anklet = "Chain Anklet";
+                            break;
+                        case "5":
+                            UserFeatures.Anklet = "None";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input! Please try again.");
+                    }
+                    ph = true;
+                    Armor(horrorCharacter);
                 }
+                catch (ArgumentException ex) { Console.WriteLine(ex.Message); }
             }
-            catch (ArgumentException ex) { Console.WriteLine(ex.Message); }
+        }
+        public static void Armor(CharacterClass horrorCharacter)
+        {
 
-            Console.WriteLine("Please choose your glasses:");
-            Options.Glasses();
+            bool ph = false;
+            while (!ph)
+            {
+                try
+                {
+                    Console.WriteLine("\nPlease choose your armor:");
+                    Options.Armors();
+                    horrorCharacter.ft.Armor = Console.ReadLine();
 
-            Console.WriteLine("Please choose your necklace:");
-            Options.Necklaces();
+                    switch (horrorCharacter.ft.Armor)
+                    {
+                        case "1":
+                            horrorCharacter.ft.Armor = "Sturdy Armor";
+                            break;
+                        case "2":
+                            horrorCharacter.ft.Armor = "Leather Armor";
+                            break;
+                        case "3":
+                            horrorCharacter.ft.Armor = "Iron Armor";
+                            break;
+                        case "4":
+                            horrorCharacter.ft.Armor = "Chain Armor";
+                            break;
+                        case "5":
+                            horrorCharacter.ft.Armor = "Cloth Armor";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input! Please try again.");
+                    }
+                    Buffs(horrorCharacter);
+                }
+                catch (ArgumentException ex) { Console.WriteLine("Error: " + ex.Message); }
 
-            Console.WriteLine("Please choose your bracelet:");
-            Options.Bracelet();
+            }
 
-            Console.WriteLine("Please choose your anklet:");
-            Options.Anklets();
+        }
+        public static void Buffs(CharacterClass horrorCharacter)
+        {
+            bool ph = false;
 
-            CharacSheetsCon.Armor(horrorCharacter);
+            while (!ph)
+            {
+                try
+                {
+                    Console.WriteLine("\nPlease choose your buff: ");
+                    Options.Buffs();
+
+                    horrorCharacter.ft.Buff = Console.ReadLine();
+
+                    switch (horrorCharacter.ft.Buff)
+                    {
+                        case "1":
+                            horrorCharacter.ft.Buff = "Enhanced Healing";
+                            break;
+                        case "2":
+                            horrorCharacter.ft.Buff = "Increased Attack Speed";
+                            break;
+                        case "3":
+                            horrorCharacter.ft.Buff = "Tough Defense";
+                            break;
+                        case "4":
+                            horrorCharacter.ft.Buff = "Increased Stealth";
+                            break;
+                        case "5":
+                            horrorCharacter.ft.Buff = "Increased Stamina";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input! Please try again.");
+                    }
+                    Attitude(horrorCharacter);
+                }
+                catch (ArgumentException ex) { Console.WriteLine("Error: " + ex.Message); }
+            }
+        }
+        public static void Attitude(CharacterClass horrorCharacter)
+        {
+            bool ph = false;
+            while (!ph)
+            {
+                try {
+                    Console.WriteLine("\nPlease choose your character's attitude: ");
+                    Options.Attitudes();
+
+                    horrorCharacter.ft.Attitude = Console.ReadLine();
+
+                    switch (horrorCharacter.ft.Attitude)
+                    {
+                        case "1":
+                            horrorCharacter.ft.Attitude = "Wistful";
+                            break;
+                        case "2":
+                            horrorCharacter.ft.Attitude = "Enthusiastic";
+                            break;
+                        case "3":
+                            horrorCharacter.ft.Attitude = "Calm";
+                            break;
+                        case "4":
+                            horrorCharacter.ft.Attitude = "Scared";
+                            break;
+                        case "5":
+                            horrorCharacter.ft.Attitude = "Blank";
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input! Please try again.");
+                    }
+                    PrintInputs.PrintAll(horrorCharacter);
+                }
+                catch (ArgumentException ex) { Console.WriteLine("Error: " + ex.Message); }
+            }
         }
     }
 }

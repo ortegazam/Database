@@ -8,68 +8,12 @@ using CharacterCreation;
 
 namespace CharacterCreation
 {
-    public class CharacSheetsCon
+    public class PrintInputs
     {
         public Options op { get; set; }
         public UserFeatures ft { get; set; }
-        public CharacSheetsCon cs { get; set; }
-
-        public static void Buffs(CharacterClass horrorCharacter)
-        {
-            string[] buffs = { "Enhanced Healing", "Increase Attack Speed", "Tough Defense", "Increased Stealth", "Increased Stamina" };
-
-            Console.WriteLine($"Buffs:\n{string.Join("\n ", buffs)}"); ;
-            horrorCharacter.ft.Buff = Console.ReadLine();
-
-            Attitude(horrorCharacter);
-
-        }
-        public static void Armor(CharacterClass horrorCharacter)
-        {
-
-            bool ph = false;
-            while (!ph)
-            {
-                string[] armors = { "Sturdy Armor", "Leather Armor", "Iron Armor", "Chain Armor", "Cloth Armor" };
-
-                Console.WriteLine("\nPlease choose your armor:\n");
-                Options.Armors();
-                horrorCharacter.ft.Armor = Console.ReadLine();
-
-                if (Array.Exists(armors, armors => armors.Equals(horrorCharacter.ft.Armor, StringComparison.OrdinalIgnoreCase)))
-                {
-                    Buffs(horrorCharacter);
-                    ph = true;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input! Try again.");
-                }
-            }
-        }
-        public static void Attitude(CharacterClass horrorCharacter)
-        {
-            bool ph = false;
-            while (!ph)
-            {
-                string[] attitudes = { "Wistful", "Enthusiastic", "Calm", "Scared", "Blank" };
-
-                Options.Attitudes();
-                horrorCharacter.ft.Attitude = Console.ReadLine();
-
-                if (Array.Exists(attitudes, attitude => attitude.Equals(horrorCharacter.ft.Armor, StringComparison.OrdinalIgnoreCase)))
-                {
-                    Buffs(horrorCharacter);
-                    ph = true;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input! Try again.");
-                }
-
-                PrintAll(horrorCharacter);
-            }
-        }
+        public PrintInputs cs { get; set; }
+  
 
         public static void PrintAll(CharacterClass horrorCharacter)
         {
@@ -92,7 +36,7 @@ namespace CharacterCreation
             Console.WriteLine($"Height: {horrorCharacter.ft.Height}");
             Console.WriteLine($"Weight: {horrorCharacter.ft.Weight}\n");
 
-            Console.WriteLine("Accessories: ");
+            Console.WriteLine("Accessories: " + horrorCharacter.ft.accessories);
             Console.WriteLine($"Hat: {UserFeatures.Hat}");
             Console.WriteLine($"Glasses: {UserFeatures.Glasses}");
             Console.WriteLine($"Necklace: {UserFeatures.Necklace}");

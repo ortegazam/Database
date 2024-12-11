@@ -50,11 +50,11 @@
         public int Stamina { get; set; }
         public int Speed { get; set; }
         public int Energy { get; set; }
-        public bool Boost { get; set; }
+        public bool accessories { get; set; }
 
 
         public UserFeatures(string name, string gender, string age, int stats, string armor,
-            string anklet, string team, string hunter, string survivor, string weapon, string ability, bool boost,
+            string anklet, string team, string hunter, string survivor, string weapon, string ability, bool accessories,
             int health, int speed, int energy, int stamina, string attitude, string lace,
             string bracelet, string top, string glasses, int strength,
             string scar, string style, string shape, string expression, string hat, string color, string skin,
@@ -91,7 +91,7 @@
             this.Stamina = stamina;
             this.Speed = speed;
             this.Energy = energy;
-            this.Boost = boost;
+            this.accessories = accessories;
 
            
         }

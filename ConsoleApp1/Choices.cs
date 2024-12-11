@@ -48,7 +48,18 @@ namespace CharacterCreation
         }
         public void CurrentGame()
         {
-            Console.WriteLine("Wala pa ihh!");
+            bool ph = false;
+
+            while (!ph)
+            {
+                CharacterClass horrorCharacter = new CharacterClass();
+
+                Console.WriteLine("Wala pa ihh!");
+                Console.WriteLine("Press any key to continue. ");
+                Console.ReadKey();
+
+                Menu.MainMenu(horrorCharacter);
+            }
         }
         public void CampaignMode()
         {
@@ -56,26 +67,30 @@ namespace CharacterCreation
 
             while (!ph)
             {
-                CharacterClass horrorCharacter = new CharacterClass();
-
-                Console.WriteLine("\nDo you wish to continue?");
-                Console.WriteLine("Press Y to continue.");
-
-                string choice = Console.ReadLine();
-
-                switch (choice)
+                try
                 {
-                    case "Y":
-                        Menu.MainMenu(horrorCharacter);
-                        ph = true;
-                        break;
-                    case "y":
-                        Menu.MainMenu(horrorCharacter);
-                        ph = true;
-                        break;
-                    default:
-                        throw new ArgumentException("Invalid input. Please try again!");
+                    CharacterClass horrorCharacter = new CharacterClass();
+
+                    Console.WriteLine("\nDo you wish to continue?");
+                    Console.WriteLine("Press Y to continue.");
+
+                    string choice = Console.ReadLine();
+
+                    switch (choice)
+                    {
+                        case "Y":
+                            Menu.MainMenu(horrorCharacter);
+                            ph = true;
+                            break;
+                        case "y":
+                            Menu.MainMenu(horrorCharacter);
+                            ph = true;
+                            break;
+                        default:
+                            throw new ArgumentException("Invalid input. Please try again!");
+                    }
                 }
+                catch (ArgumentException ex) { Console.WriteLine("Error: " + ex.Message); }
             }
         }
      

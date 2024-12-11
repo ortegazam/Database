@@ -6,7 +6,7 @@ namespace CharacterCreation
     {
         public Options op { get; set; }
         public UserFeatures ft { get; set; }
-        public CharacSheetsCon cs { get; set; }
+        public PrintInputs cs { get; set; }
         public GameStruc gs { get; set; }
 
         public Characters()

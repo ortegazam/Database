@@ -124,25 +124,7 @@
             Console.WriteLine($"{"[5]",-5}Fat");
 
         }
-        public static void Armors()
-        {
-            Console.WriteLine($"{"[1]",-5}Sturdy Armor: The enemy will not be able to eat you the first time. Make sure they do not have a second time. ");
-            Console.WriteLine($"{"[2]",-5}Leather Armor: The enemy might be able to eat you deliciously or they might also think it is one of their emergency foods: the hounds.");
-            Console.WriteLine($"{"[3]",-5}Iron Armor: A knight soul remains inside the armor. Upon wearing this, you might feel hallucinations or perhaps, clues to the mansion’s secrets. ");
-            Console.WriteLine($"{"[4]",-5}Chain Armor: Too heavy, but the enemy will believe it is just one of his allies. ");
-            Console.WriteLine($"{"[5]",-5}Cloth Armor: The previous owner’s wrath against the hunters remained inside the armor. You will be able to use blood pact occasionally with a health rebound.");
-
-        }
-        public static void Attitudes()
-        {
-            Console.WriteLine("\nPlease choose your attitude:\n");
-            Console.WriteLine($"{"[1]",-5}Wistful: Because of the sudden accident, you miss your family and friends. No debuffs or buffs will commence upon selection. ");
-            Console.WriteLine($"{"[2]",-5}Enthusiastic: You consider the accident as fate. An adventure. No debuffs or buffs will commence upon selection.  ");
-            Console.WriteLine($"{"[3]",-5}Calm: You know this is a trial you must overcome to survive in a world much harsher than this. No debuffs or buffs will commence upon selection. ");
-            Console.WriteLine($"{"[4]",-5}Scared: You are not a fan of horror, and you hate gore. No debuffs or buffs will commence upon selection. ");
-            Console.WriteLine($"{"[5]",-5}Blank: You do not care. No debuffs or buffs will commence upon selection. ");
-
-        }
+        
         public static void TopClothes()
         {
             Console.WriteLine("Top Clothes:");
@@ -204,6 +186,33 @@
               Console.WriteLine("[3] Beaded Anklet");
               Console.WriteLine("[4] Chain Anklet");
               Console.WriteLine("[5] None");
+        }
+        public static void Buffs()
+        {
+            Console.WriteLine("[1] Enhanced Healing");
+            Console.WriteLine("[2] Increase Attack Speed");
+            Console.WriteLine("[3] Tough Defense"); ;
+            Console.WriteLine("[4] Increased Stealth");
+            Console.WriteLine("[5] Increased Stamina");
+        }
+
+        public static void Armors()
+        {
+            Console.WriteLine($"{"[1]",-5}Sturdy Armor: The enemy will not be able to eat you the first time. Make sure they do not have a second time. ");
+            Console.WriteLine($"{"[2]",-5}Leather Armor: The enemy might be able to eat you deliciously or they might also think it is one of their emergency foods: the hounds.");
+            Console.WriteLine($"{"[3]",-5}Iron Armor: A knight soul remains inside the armor. Upon wearing this, you might feel hallucinations or perhaps, clues to the mansion’s secrets. ");
+            Console.WriteLine($"{"[4]",-5}Chain Armor: Too heavy, but the enemy will believe it is just one of his allies. ");
+            Console.WriteLine($"{"[5]",-5}Cloth Armor: The previous owner’s wrath against the hunters remained inside the armor. You will be able to use blood pact occasionally with a health rebound.");
+
+        }
+        public static void Attitudes()
+        {
+            Console.WriteLine($"{"[1]",-5}Wistful: Because of the sudden accident, you miss your family and friends. No debuffs or buffs will commence upon selection. ");
+            Console.WriteLine($"{"[2]",-5}Enthusiastic: You consider the accident as fate. An adventure. No debuffs or buffs will commence upon selection.  ");
+            Console.WriteLine($"{"[3]",-5}Calm: You know this is a trial you must overcome to survive in a world much harsher than this. No debuffs or buffs will commence upon selection. ");
+            Console.WriteLine($"{"[4]",-5}Scared: You are not a fan of horror, and you hate gore. No debuffs or buffs will commence upon selection. ");
+            Console.WriteLine($"{"[5]",-5}Blank: You do not care. No debuffs or buffs will commence upon selection. ");
+
         }
     }
 

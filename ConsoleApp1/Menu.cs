@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using CharacterCreation;
@@ -10,11 +11,10 @@ namespace CharacterCreation
     {
         public static void Main(string[] args)
         {
+
             CharacterClass horrorCharacter = new CharacterClass();
             MainMenu(horrorCharacter);
-
-            
-        }
+        }    
         public static void MainMenu(CharacterClass horrorCharacter) {
             CharacSheets characInfo = new CharacSheets();
             Choices choices = new Choices();
@@ -71,5 +71,4 @@ namespace CharacterCreation
 
     }
 }
-        
-
+     

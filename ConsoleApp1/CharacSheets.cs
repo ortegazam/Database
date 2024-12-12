@@ -149,19 +149,32 @@ namespace CharacterCreation
                     switch (choice)
                     {
                         case '1':
-                            horrorCharacter.ft.TeamType = "Team Type: Hunter";
+                           
+                                horrorCharacter.ft.TeamType = "Team Type: Hunter";
+                                horrorCharacter.ft.SurvivorSkill = "None";
+                            
                             HunterSkills(horrorCharacter);
                             placeholder = true;
                             break;
 
                         case '2':
                             horrorCharacter.ft.TeamType = "Team Type: Survivor";
+                            horrorCharacter.ft.HunterSkill = "None";
                             SurvivorSkills(horrorCharacter);
+
                             placeholder = true;
                             break;
 
                         default:
                             throw new FormatException("Invalid input. Please try again!\n");
+                    }
+
+                    
+                    if (choice == '2')
+                    {
+
+                        horrorCharacter.ft.TeamType = "Team Type: Survivor";
+                        horrorCharacter.ft.TeamType = "Team Type: None";
                     }
                 }
                 catch (FormatException ex)
